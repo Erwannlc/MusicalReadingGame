@@ -6,8 +6,8 @@ Cette application a pour objectif d'améliorer la justesse et la rapidité de la
 
 ## Features
 - Read Treble or Bass Clef only, or both clefs.
-- Progressives levels of difficulty
-- Progessives levels of tempo (for auto play modes).
+- Progressives levels of difficulty.
+- Progessives tempo speeds (for auto play modes).
 - 4 play modes :
   - Manual : Press the 'next round' button to validate your answer whenever you want.
   - Auto 1 : Answer is saved automatically when round ends.
