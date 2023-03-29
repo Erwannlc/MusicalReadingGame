@@ -12,6 +12,7 @@ table.answersMsg {
   & tr.notes {
     & td {
       padding: 0 0.4rem;
+      color: var(--announce-color);
       &:not(:last-child){
         border-right: 1px solid rgba(255, 255, 255, 0.562);
       }
