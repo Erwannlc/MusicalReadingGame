@@ -1,5 +1,5 @@
 import * as utils from "./utils";
-import useMediaQuery from "./Hooks/useMediaQuery/useMediaQuery";
+import useMediaQuery from "./hooks/useMediaQuery/useMediaQuery";
 import * as helpers from "./helpers";
 
 export {

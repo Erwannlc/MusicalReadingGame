@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import type {
   CSSPropertiesWithVars
-} from "types/CSSPropertiesWithVars";
+} from "shared/types/CSSPropertiesWithVars";
 import "./progressbar.scss";
 
 const ProgressBar: FC<{
