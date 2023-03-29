@@ -13,7 +13,7 @@ Cette application facilite l'entrainement à la lecture de notes. Grâce à elle
   - Auto 1 : Answer is saved automatically when round ends.
   - Auto 2 : Your answer is saved as soon as a note is played. So you can go faster than the time limit to respond to each displayed note.
   - Auto 3 : Your answer is saved as soon as a note is played (like Auto2 Mode). But in this mode, the time limit is global: you may leave several notes displayed before responding. This mode is very useful when the tempo is fast.
-- Piano playable on keyboard Mode.
+- Piano mode (playable with computer keyboard, mouse, or mobile touch).
 - English & french languages.
 
 ## 
