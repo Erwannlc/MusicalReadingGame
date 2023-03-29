@@ -2,7 +2,7 @@ import Dialog from "./Dialog/Dialog";
 import { MetalButtons } from "./MetalButtons/MetalButtons";
 import type { MetalButtonsUIData } from "./MetalButtons/MetalButtons";
 import Knob from "./Knob/Knob";
-import CloseButton from "./Buttons/CloseButton";
+import CloseButton from "./SimpleButtons/CloseButton";
 
 export {
   Dialog,

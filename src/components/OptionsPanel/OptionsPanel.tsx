@@ -18,7 +18,7 @@ import {
   MoreOptionsModal
 } from "components/OptionsPanel";
 import "./options-panel.scss";
-import ChevronUpButton from "components/UI/Buttons/ChevronUpButton";
+import ChevronUpButton from "components/UI/SimpleButtons/ChevronUpButton";
 
 interface Props {
   onClefChange: (newClef: Clef) => void

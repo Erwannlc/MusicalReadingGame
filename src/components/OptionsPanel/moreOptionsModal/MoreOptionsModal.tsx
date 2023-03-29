@@ -1,7 +1,7 @@
 import { type FC, useState } from "react";
 import type { Language, Messages } from "business";
 import { Dialog } from "components/UI";
-import MoreButton from "components/UI/Buttons/MoreButton";
+import MoreButton from "components/UI/SimpleButtons/MoreButton";
 import MoreOptionsContent from "./MoreOptionsContent";
 import "./more-options--modal.scss";
 
