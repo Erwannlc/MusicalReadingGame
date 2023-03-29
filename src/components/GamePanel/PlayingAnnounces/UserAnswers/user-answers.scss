@@ -1,0 +1,84 @@
+ div.announce-answers {
+  display: grid;
+  width: 70%;
+  height: 100%;
+  justify-items: center;
+  padding: 1rem;
+
+  & div.announce-last-answers {
+    min-height: 2rem;
+    table.last-answers {
+      font: inherit;
+      font-size: 1rem;
+      margin: 1rem 0 0 0;
+      border-collapse: collapse;
+      & tr.notes {
+        & td.note {
+          padding: 0 0.4rem;
+          color: rgba(255, 255, 255, 0.562);
+          border-right: 1px solid hsla(0, 0%, 96%, 0.294);
+        }
+      }
+    }
+  }
+  & p.note-played {
+    font-size: 2rem;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+    opacity: 0.9;
+    animation-name: notesAppear;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+  }   
+  
+  @media screen and (max-width: 850px) and (orientation: portrait) {
+    width: 90%;
+    & p.note-played {
+      margin: 0;
+      padding: 0;
+    }
+    & div.announce-last-answers {
+      min-height: 1rem;
+      margin: 12dvh 0 0 -1rem;
+      padding: 0;
+      table.last-answers {
+        margin: 0;
+      }
+    }
+    @media screen and (max-height: 670px) and (orientation: portrait) {
+      width: 100%;
+      font-size: 0.9rem;
+      & div.announce-last-answers {
+        margin: 2rem 0 0 -1rem;
+      }
+    }
+  }
+
+  @media screen and (max-height: 420px) and (orientation: landscape) {
+    margin: 0;
+    padding: 0.5rem 0 1rem;
+    & p.note-played {
+      font-size: 2.5rem;
+      margin: 0;
+      padding: 0;
+    }   
+    & div.announce-last-answers {
+      min-height: 1rem;
+      margin: 0;
+      padding: 0;
+      table.last-answers {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@keyframes notesAppear {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 80%;
+  }
+}

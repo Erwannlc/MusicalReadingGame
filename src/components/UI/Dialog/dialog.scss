@@ -1,0 +1,32 @@
+dialog.modal[open] {
+  height: 50dvh;
+  width: 100%;
+  margin-top: 0;
+  display: flex;
+  background-color: rgb(29, 29, 29);
+  border: 1px solid var(--gold);
+  border-radius: 5px;
+  color: white;
+  overflow: hidden;
+  &::backdrop {
+    backdrop-filter: blur(0px) brightness(0.9);
+    -webkit-backdrop-filter: blur(0px) brightness(0.9);
+  } 
+  & button.close--button.close-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+  animation: 0.2s ease-in-out ModalFadeIn ;
+}
+
+@keyframes ModalFadeIn {
+  from {
+    opacity: 20%;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+};

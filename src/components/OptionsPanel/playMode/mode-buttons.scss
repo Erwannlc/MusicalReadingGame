@@ -1,0 +1,23 @@
+
+div.mode-buttons.metal-buttons {
+  grid: 1fr 1fr / 1fr 1fr 1fr 1fr;
+  // text-size-adjust: 50%;
+  margin-top: 0.1rem;
+
+  @media screen and (max-width: 850px) {
+    row-gap: 0.5rem;
+    column-gap: 1.5rem;
+    margin-top: 0.3rem;
+    & div.label { 
+      line-height: 2rem;
+      font-size: 80%;
+    }
+  }
+
+  div.label {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 90%;
+  }
+}

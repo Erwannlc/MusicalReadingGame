@@ -1,0 +1,13 @@
+div.clefs-buttons.metal-buttons {
+  margin: 0;
+
+  div.label {
+    font-size: 140%;
+  }
+
+  @media screen and (max-width: 850px) {
+    & div.label {
+      font-size: 120%;
+    }
+  }
+}

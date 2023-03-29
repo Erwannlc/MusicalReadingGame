@@ -1,0 +1,67 @@
+div.game-info {
+  dialog.modal.announce[open] { // modal.scss
+    height: 55dvh;
+    width: 90vw;
+    margin-top: 0.5rem;
+
+  &::backdrop {
+    backdrop-filter: blur(0px) brightness(0.9);
+    -webkit-backdrop-filter: blur(0px) brightness(0.9);
+  } 
+    & div.feedback {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 8dvh 0 0 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+        & table.correction,
+        table.answersMsg { // inside "correction.scss"
+          font-size: 1rem;
+          margin: 0 0 0 5vw;
+          border-collapse: collapse;
+        }
+    }
+    @media screen and (max-height: 670px) and (orientation: portrait) { 
+      height: 55dvh;
+      width: 100vw;
+      & div.feedback {
+        margin-top: 0;
+        margin-left: -6vw;
+        & table.correction,
+        table.answersMsg { // inside "correction.scss"
+          font-size: 0.9rem;
+          margin: 2rem 0 0 2rem;
+        }
+      }
+    }
+    @media screen and (max-width: 370px) and (orientation: portrait) { 
+    width: 100vw;
+    height: 55dvh;
+      & div.feedback {
+        // margin-top: 3dvh;
+        // margin-left: -8vw;
+        & table.correction,
+        table.answersMsg { // inside "correction.scss"
+          font-size: 0.9rem;
+          margin: 2rem 0 0 2rem;
+        }
+      }
+    }
+    @media screen and (max-height: 420px) and (orientation: landscape) {
+      top: 38dvh;
+      height: 45dvh;
+      min-width: 0;
+      width: 75vw;
+      opacity: 0.9;
+      justify-content: center;
+        & div.feedback {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          margin-top: 2dvh;
+        }
+    }
+  }
+}

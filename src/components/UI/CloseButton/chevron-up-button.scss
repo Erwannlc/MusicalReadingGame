@@ -1,0 +1,74 @@
+:root {
+  --button-border--color: rgba(0, 0, 0, 0.75);
+  --button-background--color: hsla(40, 6%, 10%, 0.637);
+  --button-dark-gold--color: hsla(37, 100%, 61%, 0.786);
+}
+button.chevron-up {
+ --btn-size: calc(1.1rem + 2vmin);
+  height: var(--btn-size);
+  width: calc(var(--btn-size) + 6vw);
+  max-width: 130px;
+  position: absolute;
+  top: 20%;
+  right: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  background: var(--button-background--color);
+  box-shadow:  5px 5px 10px #171610,
+    -5px -5px 10px #23221a;
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    color: var(--button-dark-gold--color);
+    margin-top: 4px;
+    width: calc((var(--btn-size)) * 30 / 100);
+    height: calc((var(--btn-size)) * 30 / 100);
+    border-top: 2px solid;
+    border-right: 2px solid;
+    transform: rotate(-45deg);
+  }
+  &:hover,
+  &:active {
+    transform: translateY(2px);
+    color: var(--button-dark-gold--color);
+    box-shadow: inset 5px 5px 10px #171610,
+      inset -5px -5px 10px #23221a;
+
+    &:after {
+      color: var(--button-dark-gold--color);
+      transform: rotate(-45deg) scale(0.95);
+    }
+  }
+  @media screen and (max-width: 850px) and (orientation: portrait) {
+    width: calc(var(--btn-size) + 18vw);
+    height: calc(var(--btn-size) + 0.5rem);
+    top: 8%;
+    right: 10%;
+    @media screen and (max-height: 700px) {
+      transform: rotate(90deg);
+      width: calc(var(--btn-size) + 15dvh);      
+      height: calc(var(--btn-size) + 0.2rem);
+      top: 45%;
+      right: -8vw;
+      opacity: 0.9;
+      &:hover {
+        transform: rotate(90deg);
+        background-color: rgba(0, 0, 0, 0.5);
+        &:after {
+          color: var(--button-dark-gold--color);
+        }
+      }
+    }
+  }
+  @media screen and (max-height: 420px) and (orientation: landscape) {
+    width: calc(var(--btn-size) + 10vw);
+    height: calc(var(--btn-size) + 0.5rem);
+    top: 15%;
+  }
+}
+

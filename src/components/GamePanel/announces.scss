@@ -1,0 +1,71 @@
+div.game-info {
+  & div.default {
+    margin: 2rem auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  @media screen and (max-width: 850px) and (orientation: portrait) { // large mobile phone
+    & div.default {
+      font-size: 1.4rem;
+      max-width: 95vw;
+    }
+    & div.feedback {
+      margin: 4rem 0 0 0;
+      font-size: 1rem;
+      p.end-of-game {
+        margin: 0;
+        max-width: 88vw;        
+        padding: 0.5rem;
+        &.center {
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+  @media screen and (max-height: 670px) and (orientation: portrait) {
+    & div.default {
+      justify-content: center;
+      padding-top: 0;
+      p {
+        font-size: 1rem;
+        margin: 0;
+      }        
+    }
+    & div.feedback {
+      margin: 0 1rem;
+      font-size: 85%;
+      p {
+        margin: 0;
+        &.end-of-game {
+          margin: 0;
+          padding: 0.6rem;
+          max-width: 90vw;
+        }       
+      }
+    }   
+  }
+  @media screen and (max-height: 420px) and (orientation: landscape) {
+    & div.default {
+      font-size: 1.1rem;
+      max-width: 95vw;
+      margin: 1rem 0 0 0;
+    }
+    & div.feedback {
+      & p {
+        max-width: 87vw;
+        font-size: 0.9rem;
+        text-align: justify ;
+        margin: 0 auto;
+        &.end-of-game {
+          width: 55%;
+          margin-top: 0.5rem;
+          &.center {
+            text-align: center;
+            // margin-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

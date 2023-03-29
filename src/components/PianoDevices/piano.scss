@@ -1,0 +1,166 @@
+:root {  
+  --piano: hsl(0, 72%, 32%);
+  --piano-shadow: hsla(19, 50%, 66%, 0.2);
+  --piano-border: hsl(20, 91%, 5%);
+  --piano--black-10: hsla(0, 0%, 0%, 0.1);
+  --piano--black-20: hsla(0, 0%, 0%, 0.2);
+  --piano--black-30: hsla(0, 0%, 0%, 0.3);
+  --piano--black-50: hsla(0, 0%, 0%, 0.5);
+  --piano--black-60: hsla(0, 0%, 0%, 0.6);
+  --piano--white-20: hsla(0, 0%, 100%, 0.2);
+  --piano--white-50: hsla(0, 0%, 100%, 0.5);
+  --piano--white-80: hsla(0, 0%, 100%, 0.8);
+  --note-bg--bottom: hsl(0, 0%, 93%);
+  --border-note--color: hsl(0, 0%, 73%);
+}
+
+.white,
+.black {
+  position: relative;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0.5rem 0;
+   -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  cursor: pointer;
+}
+
+
+ul.piano {
+    // grid-column: 3 / 4;
+    // grid-row: 3 / 4;
+    width: 41rem;
+    padding: 3rem 0 1.5rem 3rem;
+    position: relative;
+    border: 1px solid var(--piano-border);
+    border-radius: 1rem;
+    background-color: var(--piano);
+    box-shadow: 0 0 50px var(--piano--black-50) inset, 0 1px var(--piano-shadow) inset,
+      0 5px 15px var(--piano--black-50);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  &.disable {
+    pointer-events: none;
+  }
+
+  li:first-child {
+    border-radius: 5px 0 5px 5px;
+  }
+
+  li:last-child {
+    border-radius: 0 5px 5px 5px;
+  }
+
+  .white {
+    height: 12.5rem;
+    width: 3.5rem;
+    z-index: 1;
+    border-left: 1px solid var(--border-note--color);
+    border-bottom: 1px solid var(--border-note--color);
+    border-radius: 0 0 5px 5px;
+    box-shadow: -1px 0 0 var(--piano--white-80) inset, 0 0 5px hsl(0, 0%, 80%) inset,
+      0 0 3px var(--piano--black-20);
+    background: linear-gradient(to bottom, var(--note-bg--bottom) 0%, white 100%);
+    color: var(--piano--black-30);
+  }
+
+  .black {
+    height: 8rem;
+    width: 2rem;
+    margin: 0 0 0 -1.1rem;
+    z-index: 2;
+    border: 1px solid black;
+    border-radius: 0 0 3px 3px;
+    box-shadow: -1px -1px 2px var(--piano--white-20) inset,
+      0 -5px 2px 3px var(--piano--black-60) inset, 0 2px 4px var(--piano--black-50);
+    background: linear-gradient(45deg, hsl(0, 0%, 13%) 0%, hsl(0, 0%, 33%) 100%);
+    color: var(--piano--white-50);
+  }
+
+  .white.pressed {
+    border-top: 1px solid hsl(0, 0%, 47%);
+    border-left: 1px solid hsl(0, 0%, 60%);
+    border-bottom: 1px solid hsl(0, 0%, 60%);
+    box-shadow: 2px 0 3px var(--piano--black-10) inset,
+      -5px 5px 20px var(--piano--black-20) inset, 0 0 3px var(--piano--black-20);
+    background: linear-gradient(to bottom, white 0%, hsl(0, 0%, 91%) 100%);
+    outline: none;
+  }
+
+  .black.pressed {
+    box-shadow: -1px -1px 2px var(--piano--white-20) inset,
+      0 -2px 2px 3px var(--piano--black-60) inset, 0 1px 2px var(--piano--black-50);
+    background: linear-gradient(
+      to right,
+      hsl(0, 0%, 27%) 0%,
+      hsl(0, 0%, 13%) 100%
+    );
+    outline: none;
+  }
+
+  .offset {
+    margin: 0 0 0 -1.1rem;
+  }
+
+  @media screen and (max-width: 850px) {
+    width: 90vw;
+    padding: 1rem 0 1.3rem 1.5rem;
+    .white {
+      height: 21vh;
+      width: 10.5vw;
+      padding: 0.84vh 0;
+    }
+    .black {
+      height: 13.4dvh;
+      width: 6vw;
+      margin: 0 0 0 -3.28vw;
+      padding: 0.84vh 0;
+      font-size: 0.8rem;
+    }
+    .offset {
+      margin: 0 0 0 -2.7vw;
+    }
+  };
+
+  @media screen and (max-height: 420px) and (orientation: landscape) {
+    grid-column: 4 / 8;
+    grid-row: 2 / 3;
+    width: 55vw;
+    width: 100%;
+    margin: 2dvh 0 0 0;
+    padding: 4dvh 3vw 5dvh 4vw; // red zone
+      .white {
+        height: 19vmax;
+        width: 10.5vmin;
+        padding: 0.84vmax 0;
+      }
+      .black {
+        height: 12vmax;
+        width: 6vmin;
+        margin: 0 0 0 -3.28vmin;
+        padding: 0.84vmax 0;
+        font-size: 0.8rem;
+      }
+      .offset {
+        margin: 0 0 0 -2.7vmin;
+      }
+  }
+}
+
+@keyframes highlights {
+  0%{background-position:51% 0%}
+  50%{background-position:50% 100%}
+  100%{background-position:51% 0%}
+}

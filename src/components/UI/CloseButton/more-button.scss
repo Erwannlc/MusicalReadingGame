@@ -1,0 +1,66 @@
+.more-button {
+   --btn-height: calc(1.1rem + 2vmin);
+   --btn-width: calc(var(--btn-height) + 1vmin);
+  height: var(--btn-height);
+  width: var(--btn-width);
+  position: absolute;
+  top: 20%;
+  left: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  background: var(--button-background--color);
+  box-shadow:  5px 5px 10px #171610,
+    -5px -5px 10px #23221a;
+  cursor: pointer;
+
+  span.more-icon,
+  span.more-icon::after,
+  span.more-icon::before {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 3px;
+    height: 3px;
+    background: var(--button-dark-gold--color);
+    border-radius: 100%
+  }
+  span.more-icon::after,
+  span.more-icon::before {
+    content: "";
+    position: absolute;
+    top: 0
+  }
+  span.more-icon::after {
+    left: -0.5rem
+  }
+  span.more-icon::before {
+    right: -0.5rem
+  }
+  &:hover,
+  &:active {
+    transform: translateY(2px) scale(0.9);
+    background: var(--button-background--color);
+    box-shadow: inset 5px 5px 10px #171610,
+     inset -5px -5px 10px #23221a;    
+  }
+  @media screen and (max-width: 850px) and (orientation: portrait) {
+    width: calc(calc(var(--btn-height) + 5vmin));
+    height: calc(var(--btn-height) + 0.5rem);
+    top: 8%;
+    left: 10%;
+    @media screen and (max-height: 700px) {
+      height: var(--btn-height);
+      right: 83%;
+      top: 2%;
+      opacity: 0.8;
+    }
+  }
+  @media screen and (max-height: 420px) and (orientation: landscape) {
+    width: calc(calc(var(--btn-height) + 5vmin));
+    height: calc(var(--btn-height) + 0.5rem);
+    top: 15%;
+  }
+}

@@ -1,0 +1,148 @@
+:root {
+  --options-panel--color: hsla(0, 0%, 100%, 0.518);
+}
+div.options {
+  grid-row: 1 / 2;
+  grid-column: 1 / 6;
+  height: 18rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-self: center;
+  justify-content: space-between;
+  align-items: flex-end;
+  overflow: hidden;
+  z-index: 3; 
+
+  &.panel {
+    background-image: linear-gradient(#4f585f, #394046), url("../../assets/leather_texture.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat; // iOS Safari
+    background-blend-mode: multiply;
+    padding: 5% 8%;
+    transform: translateY(-110%);
+    transition: transform 0.3s ease-in;
+    border-radius: 15px;
+    border: 6px solid black;
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */  
+    box-shadow: rgb(2, 2, 4) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    & .tempo-level--knobs {
+      display: flex; 
+      width: 36%;
+      justify-content: space-between; 
+    }
+    &.fade {
+      margin-top: -1rem;
+      transform: translateY(0);
+    }
+    &.animate {
+      transition: transform 0.4s ease-in-out;
+    }
+  }
+  @media screen and (max-width: 850px) and (orientation: portrait) {
+    &.panel {
+      grid-row: 1 / 4;
+      min-width: 0;
+      width: 100vw;
+      height: 85dvh;
+      flex-flow: column;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between; 
+      padding: 30% 5% 20%;
+      & .tempo-level--knobs {
+      display: flex; 
+      width: 55vw;
+      }
+      & div.device-option {
+        margin-top: 1.5rem;
+      }     
+      @media screen and (max-height: 700px) {
+      transform: translateX(102%);
+      border: 2px solid rgba(0, 0, 0, 0.4);
+      border-radius: 15px 0 0 15px;
+      padding: 10% 5%;
+      & .tempo-level--knobs {
+        width: 80vw;
+        padding-right: 4rem;
+        justify-content: space-around; 
+        }
+      & div.mode-option {
+        align-items: center;
+      }
+        &.fade {
+          margin-top: 1dvh;
+          transform: translateX(2%);
+        }
+      }
+    } 
+  }
+
+  @media screen and (max-height: 420px) and (orientation: landscape) {
+    &.panel {
+      grid-row: 1 / 4;
+      grid-column: 1 / 8;
+      min-width: 0;
+      height: 95dvh;
+      width: 95vw;
+      flex-direction: row;
+      align-items: flex-end;
+      padding: 0 8% 20dvh ;
+      & .tempo-level--knobs {
+        width: 32%;
+        justify-content: space-between; 
+        }
+      @media screen and (max-height: 330px) and (orientation: landscape) {
+        height: 100dvh;
+        width: 99vw;
+        padding: 5%;
+      }
+    }
+  }
+}
+
+div.mode-option {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: max-content;
+  margin: 1rem 0 0 8rem;
+  font-family: muli, sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 0.5rem;
+  & p {
+    margin-bottom: 1.2rem;
+    padding-left: 1rem;
+  }
+}
+
+div.tempo-option, div.level-option, div.clef-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: max-content;
+  margin: 0 0 1rem;
+  color:var(--options-panel--color);
+  font-family: muli, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  & p {
+    margin-bottom: 1.2rem;
+    padding-left: 1rem;
+    &.clef-option-title {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+div.clef-option {
+  margin: 0 0 0.5rem;
+}

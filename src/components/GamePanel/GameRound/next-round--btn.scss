@@ -1,0 +1,58 @@
+$borderColor: hsl(36, 10%, 10%);
+$semiTransparent: hsla(36, 10%, 10%, 0.151);
+$color2: hsla(0, 3%, 41%, 0.894);
+$color2-active: hsl(37, 100%, 61%);
+$color-disabled: hsl(0, 0%, 21%);
+$gold: var(--gold);
+
+button.next-round {
+  grid-row: 3 / 4;
+  grid-column: 3 / 4;
+  place-self: start center;
+  margin-top: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  z-index: 1;
+  color: $borderColor;
+  background-color: whitesmoke;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  &:active {
+    color: $color2-active;
+    border-color: $gold;
+    background-color: $borderColor;
+  }
+  &:hover {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+  }  
+  &:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  }
+  @media screen and (max-width: 850px) and (orientation: portrait) {
+      grid-column: 2 / 5;
+  }
+}
+
