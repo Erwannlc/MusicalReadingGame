@@ -20,4 +20,4 @@ Cette application a pour objectif d'améliorer la justesse et la rapidité de la
 
 Application based on React/Typescript.
 
-See demo : http://musical-reading-game.s3-website.eu-west-3.amazonaws.com/
+See live demo : https://erwannlc.github.io/musical-reading-game/
