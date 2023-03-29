@@ -7,16 +7,27 @@
 
   & div.announce-last-answers {
     min-height: 2rem;
-    table.last-answers {
+    div.last-answers {
       font: inherit;
       font-size: 1rem;
       margin: 1rem 0 0 0;
-      border-collapse: collapse;
-      & tr.notes {
-        & td.note {
+      & div.notes {
+        display: flex;
+        flex-direction: row;
+        & div.note {
+          display: flex;
+          justify-content: center;
           padding: 0 0.4rem;
-          color: rgba(255, 255, 255, 0.562);
-          border-right: 1px solid hsla(0, 0%, 96%, 0.294);
+          width: 1.8rem;
+          &.correct {
+            color: rgba(255, 255, 255, 0.7);
+          }
+          &.wrong {
+            color: rgba(255, 255, 255, 0.3);
+          }
+          &:not(:last-child){
+            border-right: 1px solid hsla(0, 0%, 96%, 0.3);
+          }
         }
       }
     }
@@ -34,17 +45,26 @@
   
   @media screen and (max-width: 850px) and (orientation: portrait) {
     width: 90%;
-    & p.note-played {
-      margin: 0;
-      padding: 0;
-    }
     & div.announce-last-answers {
       min-height: 1rem;
       margin: 12dvh 0 0 -1rem;
       padding: 0;
-      table.last-answers {
+      div.last-answers {
         margin: 0;
+        & div.notes {
+          & div.note {
+            padding: 0 0.4rem;
+            width: 1.6rem;
+            &:not(:last-child){
+              border-right: 1px solid hsla(0, 0%, 96%, 0.2);
+            }
+          }
+        }
       }
+    }
+    & p.note-played {
+      margin: 0;
+      padding: 0;
     }
     @media screen and (max-height: 670px) and (orientation: portrait) {
       width: 100%;
@@ -67,7 +87,7 @@
       min-height: 1rem;
       margin: 0;
       padding: 0;
-      table.last-answers {
+      div.last-answers {
         margin: 0;
       }
     }

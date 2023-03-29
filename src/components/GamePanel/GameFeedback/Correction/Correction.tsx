@@ -8,7 +8,7 @@ const Correction: FC <CorrectionType> = ({
   messages
 }) => {
   function getClassName (isWrong: boolean) {
-    return isWrong ? "wrong" : "correct";
+    return isWrong ? "note wrong" : "note correct";
   }
   const {
     CORRECTION_MYANSWERS,
@@ -16,30 +16,28 @@ const Correction: FC <CorrectionType> = ({
   } = messages;
 
   return (
-    <table className="correction" aria-label="Answers and solution">
-      <tbody>
-        <tr className="title">
-          <th colSpan={gameSolution.length}>{CORRECTION_MYANSWERS}</th>
-        </tr>
-        <tr className="answers notes">
+    <div className="correction" aria-label="Answers and solution">
+      <div className="correction-answers">
+        <h1>{CORRECTION_MYANSWERS}</h1>
+        <div className="answers notes">
           {gameAnswers.map(answer =>
-            <td
-             className={getClassName(answer.isWrong)}
-             key={answer.key}>{answer.content}</td>
+            <div
+              className={getClassName(answer.isWrong)}
+              key={answer.key}>{answer.content}</div>
           )}
-        </tr>
-        <tr className="title">
-          <th colSpan={gameSolution.length}>{CORRECTION_SOLUTION}</th>
-        </tr>
-        <tr className="solution notes">
+        </div>
+      </div>
+      <div className="correction-solution">
+        <h1>{CORRECTION_SOLUTION}</h1>
+        <div className="solution notes">
           {gameSolution.map(solution =>
-            <td
+            <div
             className={getClassName(solution.isWrong)}
-            key={solution.key}>{solution.content}</td>
+            key={solution.key}>{solution.content}</div>
           )}
-        </tr>
-      </tbody>
-    </table>
+        </div>
+      </div>
+    </div>
   );
 };
 

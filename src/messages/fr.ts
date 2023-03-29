@@ -46,8 +46,8 @@ const FEEDBACK_DOWNGRADE_OPTIONS =
 const FEEDBACK_DISPLAY_CORRECTION = "Cliquez ici pour afficher la correction";
 const QUIT_GAME = "Quitter la partie";
 // // Correction
-const CORRECTION_MYANSWERS = "Mes réponses :";
-const CORRECTION_SOLUTION = "Solution :";
+const CORRECTION_MYANSWERS = "Mes réponses";
+const CORRECTION_SOLUTION = "Solution";
 
 // Options
 const OPTIONS_TEMPO_TITLE = "Tempo";

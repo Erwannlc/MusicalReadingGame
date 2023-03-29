@@ -4,50 +4,57 @@ div.game-info {
     width: 90vw;
     margin-top: 0.5rem;
 
-  &::backdrop {
-    backdrop-filter: blur(0px) brightness(0.9);
-    -webkit-backdrop-filter: blur(0px) brightness(0.9);
-  } 
+    &::backdrop {
+      backdrop-filter: blur(0px) brightness(0.9);
+      -webkit-backdrop-filter: blur(0px) brightness(0.9);
+    } 
     & div.feedback {
       height: 100%;
       width: 100%;
       padding: 0;
-      margin: 8dvh 0 0 0;
+      margin: 0;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-        & table.correction,
-        table.answersMsg { // inside "correction.scss"
-          font-size: 1rem;
-          margin: 0 0 0 5vw;
-          border-collapse: collapse;
+      justify-content: flex-start;
+      align-items: center;
+      & div.correction { // inside "correction.scss"
+        font-size: 1rem;
+        margin-top: 2rem;
+        flex-direction: row;         
+        & div.correction-answers, 
+        & div.correction-solution {
+          & h1 {
+            font-size: 0.9rem;
+            margin: 0 1rem 0.5rem;
+          }
+          & div.notes {
+            flex-direction: column;
+            align-items: center;
+            & div.note {
+              border-right: none;
+              padding: 0.2rem 0;
+              &:not(:last-child){
+                border-bottom: 1px solid var(--correction--border-color);
+              }
+            }
+          }
         }
+      }
     }
     @media screen and (max-height: 670px) and (orientation: portrait) { 
-      height: 55dvh;
+      height: 56dvh;
       width: 100vw;
       & div.feedback {
-        margin-top: 0;
-        margin-left: -6vw;
-        & table.correction,
-        table.answersMsg { // inside "correction.scss"
+        justify-content: center;
+        & div.correction { // inside "correction.scss"
           font-size: 0.9rem;
-          margin: 2rem 0 0 2rem;
+          margin: 0;
+          flex-direction: row;         
         }
       }
     }
     @media screen and (max-width: 370px) and (orientation: portrait) { 
     width: 100vw;
-    height: 55dvh;
-      & div.feedback {
-        // margin-top: 3dvh;
-        // margin-left: -8vw;
-        & table.correction,
-        table.answersMsg { // inside "correction.scss"
-          font-size: 0.9rem;
-          margin: 2rem 0 0 2rem;
-        }
-      }
+    height: 61dvh;
     }
     @media screen and (max-height: 420px) and (orientation: landscape) {
       top: 38dvh;
@@ -55,13 +62,24 @@ div.game-info {
       min-width: 0;
       width: 75vw;
       opacity: 0.9;
-      justify-content: center;
-        & div.feedback {
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-          margin-top: 2dvh;
+      & div.feedback {
+        margin: 0;
+        justify-content: center;
+        & div.correction { // inside "correction.scss"
+          font-size: 0.9rem;
+          & div.correction-answers, 
+          & div.correction-solution {
+            & h1 {
+              margin: 0.4rem 0;
+            }
+          }
+          & div.correction-solution {
+            & h1 {
+              margin-top: 1.5rem;
+            }
+          }
         }
+      }
     }
   }
 }

@@ -39,24 +39,27 @@ const UserAnswers: FC<Props> = ({ answers, note, language }) => {
     } else return "";
   }
 
+  function getNoteClassName (answer: Answer) {
+    const isCorrect = answer && !answer.isWrong;
+    return isCorrect ? "note correct" : "note wrong";
+  }
+
   const notePlayed = getPlayedNoteName();
 
   return (
   <div className="announce-answers">
     <div className="announce-last-answers">
-        <table className="last-answers" aria-label="User's answers">
-          <tbody>
-            <tr className="notes">
+        <div className="last-answers" aria-label="User's answers">
+            <div className="notes">
               {answers.map((answer, i) =>
-                <td
-                  className="note"
+                <div
+                  className={getNoteClassName(answer)}
                   key={`${answer.noteName ?? "?"}${i}`}>
                     {getAnswerNoteName(answer)}
-                </td>
+                </div>
               )}
-            </tr>
-          </tbody>
-        </table>
+            </div>
+        </div>
     </div>
     <AnnounceNotePlayed notePlayed={notePlayed} id={count.current.toString()}/>
   </div>
