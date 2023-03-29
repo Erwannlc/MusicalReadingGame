@@ -63,22 +63,24 @@ div.options {
         margin-top: 1.5rem;
       }     
       @media screen and (max-height: 700px) {
-      transform: translateX(102%);
-      border: 2px solid rgba(0, 0, 0, 0.4);
-      border-radius: 15px 0 0 15px;
-      padding: 10% 5%;
-      & .tempo-level--knobs {
-        width: 80vw;
-        padding-right: 4rem;
-        justify-content: space-around; 
+        grid-row: 1 / 5;
+        transform: translateX(102%);
+        height: 95dvh;
+        border: 2px solid rgba(0, 0, 0, 0.4);
+        border-radius: 15px 0 0 15px;
+        padding: 10% 5%;
+        & .tempo-level--knobs {
+          width: 80vw;
+          padding-right: 4rem;
+          justify-content: space-around; 
+          }
+        & div.mode-option {
+          align-items: center;
         }
-      & div.mode-option {
-        align-items: center;
-      }
-        &.fade {
-          margin-top: 1dvh;
-          transform: translateX(2%);
-        }
+          &.fade {
+            margin-top: 1dvh;
+            transform: translateX(2%);
+          }
       }
     } 
   }

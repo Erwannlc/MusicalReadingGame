@@ -54,6 +54,9 @@ div.level-option {
     &:hover{
       transform: scale(1.5) translate(0, -1rem);
       transition: all 0.2s ease-in-out;
+      p {
+        visibility: hidden;
+      }
     }
   }
 }
