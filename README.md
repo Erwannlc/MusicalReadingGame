@@ -1,8 +1,8 @@
 # Welcome to Musical Reading Game
 
-This app makes it easy to practice reading notes. Thanks to it, you will be able to decipher your music sheets more quickly and efficiently!
+This app makes it easy to practice reading notes. You will thus be able to decipher your music sheets more quickly and efficiently.
 
-Cette application facilite l'entrainement à la lecture de notes. Grâce à elle, vous pourrez ainsi déchiffrer plus rapidement et efficacement vos partitions !
+Cette application facilite l'entrainement à la lecture de notes. Vous pourrez ainsi déchiffrer plus rapidement et efficacement vos partitions.
 
 ## Features
 - Read the treble clef or bass clef separately, or both clefs together.
