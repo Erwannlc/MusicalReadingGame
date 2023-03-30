@@ -56,7 +56,7 @@ const Dialog: FC<Props> = ({
       onCancel={(e: React.SyntheticEvent<HTMLDialogElement, Event>) => {
         handleCancel(e);
       }}>
-        {children}
+      {children}
       <CloseButton
        handleClose={onRequestClose}
        className="close-modal"
