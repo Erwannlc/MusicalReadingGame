@@ -103,7 +103,7 @@ const Piano: FC<Props> = ({
           onNotePlayStarted={() => {
             playNote(note);
           }}
-          tooltip={getNoteLatinName(note)}
+          tooltip={getNoteLatinName(note) + " / " + note.fullName}
         />
       ))}
     </ul>
