@@ -100,6 +100,7 @@ function getSolution (
   };
   return newSolution;
 }
+
 function getEmptyAnswers (gameLength: number): Answer[] {
   const emptyAnswers = [];
   for (let i = 0; i < gameLength; i++) {

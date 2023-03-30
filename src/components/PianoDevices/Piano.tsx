@@ -16,11 +16,10 @@ interface Props {
   onNotePlayed: (note: Note) => void
 };
 
-const Piano: FC<Props> = (
-  {
-    pianoScale,
-    onNotePlayed
-  }) => {
+const Piano: FC<Props> = ({
+  pianoScale,
+  onNotePlayed
+}) => {
   const audioContext = useMemo(() => new window.AudioContext(), []);
   const oscillators = useMemo(() => new Map<string, OscillatorNode>(), []);
 
@@ -35,8 +34,10 @@ const Piano: FC<Props> = (
     const noteId = note.getId();
     const noteNode = notesNodeRef.current.get(noteId);
     noteNode?.classList.add("pressed");
-    oscillators.set(noteId,
-      playNoteSound(audioContext, note.getHz()));
+    oscillators.set(
+      noteId,
+      playNoteSound(audioContext, note.getHz())
+    );
     if (!note.isSharp) {
       onNotePlayed(note);
     }

@@ -1,7 +1,6 @@
 import { type FC, useState } from "react";
 import type { Language, Messages } from "business";
-import { Dialog } from "components/UI";
-import MoreButton from "components/UI/SimpleButtons/MoreButton";
+import { Dialog, MoreButton } from "components/UI";
 import MoreOptionsContent from "./MoreOptionsContent";
 import "./more-options--modal.scss";
 
@@ -27,6 +26,7 @@ const MoreOptionsModal: FC<Props> = ({
   const closeModal = () => {
     setModalOpen(false);
   };
+
   if (modalOpen) {
     return (
     <Dialog
@@ -43,9 +43,7 @@ const MoreOptionsModal: FC<Props> = ({
     </Dialog>
     );
   } else {
-    return (
-    <MoreButton className="" onMoreOpen={openModal}/>
-    );
+    return <MoreButton className="" onMoreOpen={openModal}/>;
   }
 };
 

@@ -14,10 +14,10 @@ interface Props {
   language: Language
 }
 
-const AnnounceNotePlayed: FC<{ notePlayed: string, id: string }> = (
-  { notePlayed, id }) => (
-  <p className={`note-played`} key={id}>{notePlayed}</p>
-);
+const AnnounceNotePlayed: FC<{ notePlayed: string, id: string }> = ({
+  notePlayed,
+  id
+}) => <p className={`note-played`} key={id}>{notePlayed}</p>;
 
 const UserAnswers: FC<Props> = ({ answers, note, language }) => {
   const count = useRef(1); // allow NotePlayed to animate itself at each render

@@ -23,7 +23,8 @@ const PlayingAnnounces: FC<Props> = ({
     <>
       {displayProgressBar && <ProgressBar
         round={round}
-        intervalTime={intervalTime}/>}
+        intervalTime={intervalTime}
+      />}
       <UserAnswers
         answers={answers}
         note={announceNotePlayed}

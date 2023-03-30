@@ -70,6 +70,7 @@ function getPlayGameHandlers ({
     setGameStatus({ status: Status.initializing, round: 0 });
     initializeGame();
   }
+
   function onStopClick () {
     (async () => {
       clearTimeout(countdownTimer);
@@ -107,6 +108,7 @@ function getPlayGameHandlers ({
       notePlayedRef.current = undefined;
     }
   }
+
   function quitRound () {
     setGameStatus(g => ({ ...g, round: round + 1 }));
     displayNotePlayed(notePlayedRef.current);

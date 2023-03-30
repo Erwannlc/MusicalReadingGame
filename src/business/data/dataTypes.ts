@@ -14,9 +14,6 @@ enum Device {
 }
 
 type PlayMode = "manual" | "auto1" | "auto2" | "auto3";
-// auto1 = answerWhenRoundEnds
-// auto2 = answerwhenNoteIsPlayed
-// auto3 = answers saved at the end of the game (not at the end of the round)
 
 interface GameOptions {
   tempo: number

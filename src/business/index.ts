@@ -8,6 +8,7 @@ import {
   defaultStatus,
   defaultLanguage
 } from "./data/appData";
+
 import type {
   SingleClef,
   PlayMode,
@@ -50,6 +51,7 @@ export {
   Levels,
   Status
 };
+
 export type {
   SingleClef,
   PlayMode,

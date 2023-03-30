@@ -89,6 +89,7 @@ const GamePanel: FC<Props> = ({
   const intervalTime = isAutoPlay3 && (round === gameLength)
     ? interval * 2
     : interval;
+
   function onQuitGame () {
     clearTimeout(timer.current);
     onStopClick();
@@ -137,11 +138,13 @@ const GamePanel: FC<Props> = ({
     onStopClick,
     displayInfo
   };
+
   const {
     PLAY_TOOLTIP,
     PLAY_TOOLTIP_FEEDBACK,
     STOP_TOOLTIP
   } = messages;
+
   const playStopUIMessages = {
     playClassN: `play${isPlaying || isInitializing ? " is-play" : ""}`,
     stopClassN: "stop",
@@ -243,16 +246,15 @@ const GameAnnounce: FC<GameAnnounceProps> = ({
 
   function displayModalParentAnnounce (openModal: () => void) {
     const scorePercent: number = Math.round(score * 100 / gameLength);
-    displayInfo(
-      {
-        content: <FeedbackScore
-          scorePercent={scorePercent}
-          openModal={openModal}
-          onQuitGame={onStopClick}
-          messages={messages}/>,
-        className: "feedback",
-        isModal: false
-      });
+    displayInfo({
+      content: <FeedbackScore
+        scorePercent={scorePercent}
+        openModal={openModal}
+        onQuitGame={onStopClick}
+        messages={messages}/>,
+      className: "feedback",
+      isModal: false
+    });
   }
 
   if (isPlaying) {

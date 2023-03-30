@@ -42,7 +42,6 @@ const keyboardKeyNotes = [
 
 const pianoScale = createPianoScale("C.4", "F.5", false);
 const mobilePianoScale = createPianoScale("C.4", "C.5", false);
-
 const padsScale = createPianoScale("C.4", "C.5", true);
 
 const levelData: LevelScales = {
@@ -69,6 +68,7 @@ const levelData: LevelScales = {
 };
 
 const tempoValues: string[] = getTempoArr();
+
 function getTempoArr () {
   const tempoArr: string[] = [];
   for (let i = 1; i < 12; i++) {

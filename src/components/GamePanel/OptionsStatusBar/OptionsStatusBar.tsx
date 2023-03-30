@@ -23,8 +23,12 @@ const OptionsStatusBar: FC<Props> = ({
   const isIndicatorTooLarge: boolean = (
     (options.clef === Clef.both)
   );
-  const { tooltips, indicator } =
-    getOptionsStatus(options, intervalTime, language, messages);
+  const { tooltips, indicator } = getOptionsStatus(
+    options,
+    intervalTime,
+    language,
+    messages
+  );
 
   const className = isIndicatorTooLarge
     ? "options-status--bar largest"

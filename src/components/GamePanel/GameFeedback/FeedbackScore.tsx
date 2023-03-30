@@ -23,6 +23,7 @@ const FeedbackScore: FC<Props> = ({
     FEEDBACK_DISPLAY_CORRECTION,
     QUIT_GAME
   } = messages;
+
   const SCORE_FEEDBACK =
     FEEDBACK_YOU_HAVE +
     scorePercent.toString() + "%" +

@@ -17,8 +17,8 @@ import {
   TempoSelector,
   MoreOptionsModal
 } from "components/OptionsPanel";
+import { ChevronUpButton } from "components/UI";
 import "./options-panel.scss";
-import ChevronUpButton from "components/UI/SimpleButtons/ChevronUpButton";
 
 interface Props {
   onClefChange: (newClef: Clef) => void
@@ -66,27 +66,29 @@ const OptionsPanel: FunctionComponent <Props> = ({
         onLanguageChange={onLanguageChange}
         language={language}
         messages={messages}
-        />
+      />
       <PlayModeSelector
         playMode={options.playMode}
         onChange={onPlayModeChange}
         disabled={isDisabled}
         messages={messages}
       />
-      <ChevronUpButton handleClose={onToggleOptions}/>
+      <ChevronUpButton
+        handleClose={onToggleOptions}
+      />
       <div className="tempo-level--knobs">
         <TempoSelector
           tempo={options.tempo}
           onTempoChange={onTempoChange}
           disabled={isTempoDisabled}
           messages={messages}
-          />
+        />
         <LevelSelector
           level={options.level}
           onLevelChange={onLevelChange}
           disabled={isDisabled}
           messages={messages}
-          />
+        />
       </div>
       <ClefSelector
         clef={options.clef}
@@ -100,7 +102,6 @@ const OptionsPanel: FunctionComponent <Props> = ({
         disabled={isDisabled}
         messages={messages}
        />
-
     </div>
   );
 };

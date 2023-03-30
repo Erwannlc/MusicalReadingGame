@@ -24,8 +24,10 @@ export default function getOptionsStatus (
     OPTIONSSTATUS_TOOLTIP_TEMPO,
     OPTIONSSTATUS_TOOLTIP_LEVEL
   } = messages;
+
   const { tempo, clef, level } = options;
   const levelValue = level + 1;
+
   function getAndAHalfMessage (noun: string): string {
     if (language === "fr") {
       return noun + " " + ANDAHALF;

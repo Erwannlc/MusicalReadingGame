@@ -62,11 +62,11 @@ const GameScore: FC<Props> = ({
           <div className="progressbar">
             <svg className="progressbar__svg">
               <circle
-              cx="55"
-              cy="55"
-              r="50"
-              id="scoreCircle"
-              className={className.scoreCircle}>
+                cx="55"
+                cy="55"
+                r="50"
+                id="scoreCircle"
+                className={className.scoreCircle}>
               </circle>
             </svg>
             <span className={className.scoreTxt}>{scoreTxt}</span>

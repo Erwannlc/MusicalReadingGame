@@ -2,8 +2,8 @@ import type { FC } from "react";
 import type { Messages } from "business";
 import { Clef } from "business";
 import {
-  MetalButtons,
-  type MetalButtonsUIData
+  type MetalButtonsUIData,
+  MetalButtons
 } from "components/UI";
 import "./clefButtons.scss";
 
