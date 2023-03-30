@@ -104,7 +104,7 @@ $gold: var(--gold);
     &:last-child:before {
       border-radius: 0 $borderRadius $borderRadius 0;
     }    
-    &.stop:hover {
+    &.stop:hover:not(:disabled) {
       top: 4px;
       & svg path {
         fill: $color2-active;
@@ -134,7 +134,7 @@ $gold: var(--gold);
         fill: $color-disabled;
       } 
     }  
-    &:active, &:hover:active {
+    &:active:not(:disabled), &:hover:active:not(:disabled) {
       top: $buttonOffset;
       &.stop svg path {
         fill: $color2-active;

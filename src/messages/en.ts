@@ -17,6 +17,8 @@ const PLAY_TOOLTIP = "Start a new game";
 const PLAY_TOOLTIP_FEEDBACK = "Quit the game by pressing stop" +
       " to be able to start a new game";
 const STOP_TOOLTIP = "Stop the game in progress";
+const STOP_TOOLTIP_DISABLED =
+  "Press Play button to start a new game";
 // // OptionsStatus Bar
 const OPTIONSSTATUS_DIFFICULTY = "Difficulty";
 const OPTIONSSTATUS_TEMPO_VERYSLOW = "very slow";
@@ -101,6 +103,7 @@ export {
   PLAY_TOOLTIP,
   PLAY_TOOLTIP_FEEDBACK,
   STOP_TOOLTIP,
+  STOP_TOOLTIP_DISABLED,
   OPTIONSSTATUS_DIFFICULTY,
   OPTIONSSTATUS_TEMPO_VERYSLOW,
   OPTIONSSTATUS_TEMPO_SLOW,

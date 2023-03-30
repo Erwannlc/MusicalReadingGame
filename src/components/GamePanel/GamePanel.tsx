@@ -142,7 +142,8 @@ const GamePanel: FC<Props> = ({
   const {
     PLAY_TOOLTIP,
     PLAY_TOOLTIP_FEEDBACK,
-    STOP_TOOLTIP
+    STOP_TOOLTIP,
+    STOP_TOOLTIP_DISABLED
   } = messages;
 
   const playStopUIMessages = {
@@ -151,7 +152,7 @@ const GamePanel: FC<Props> = ({
     playTooltip: isReportingFeedback
       ? PLAY_TOOLTIP_FEEDBACK
       : PLAY_TOOLTIP,
-    stopTooltip: STOP_TOOLTIP,
+    stopTooltip: isEnding ? STOP_TOOLTIP_DISABLED : STOP_TOOLTIP,
     disabledPlayBtn: isReportingFeedback
   };
 

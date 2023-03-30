@@ -17,6 +17,8 @@ const PLAY_TOOLTIP = "Lancer une nouvelle partie";
 const PLAY_TOOLTIP_FEEDBACK = "Quitter la partie en appuyant sur stop" +
       " pour pouvoir relancer une nouvelle partie";
 const STOP_TOOLTIP = "Stopper la partie en cours";
+const STOP_TOOLTIP_DISABLED =
+  "Appuyez sur le bouton Play pour lancer une partie";
 // // OptionsStatus Bar
 const OPTIONSSTATUS_DIFFICULTY = "Difficulté";
 const OPTIONSSTATUS_TEMPO_VERYSLOW = "très lent";
@@ -103,6 +105,7 @@ export {
   PLAY_TOOLTIP,
   PLAY_TOOLTIP_FEEDBACK,
   STOP_TOOLTIP,
+  STOP_TOOLTIP_DISABLED,
   OPTIONSSTATUS_DIFFICULTY,
   OPTIONSSTATUS_TEMPO_VERYSLOW,
   OPTIONSSTATUS_TEMPO_SLOW,
