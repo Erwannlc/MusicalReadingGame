@@ -104,14 +104,17 @@ export default function getOptionsStatus (
   }
 
   function getLevelInfo (level: Levels): string {
+    const intervalMsg = language === "fr"
+      ? "interval de " + getRangeToOctaves(level)
+      : getRangeToOctaves(level) + " interval";
     switch (clef) {
       case (Clef.treble):
       case (Clef.bass): {
-        return getRangeToOctaves(level) + "\n" + getNotesRange(level);
+        return intervalMsg + "\n" + getNotesRange(level);
       }
       case (Clef.both): {
         return (
-          "2 x " + getRangeToOctaves(level) + "\n" + getNotesRange(level)
+          "2 x " + intervalMsg + "\n" + getNotesRange(level)
         );
       }
     }
@@ -160,7 +163,7 @@ export default function getOptionsStatus (
       clef:
       `${optionsStatus.clefName}`,
       level: OPTIONSSTATUS_TOOLTIP_LEVEL + " " + levelValue +
-       "\n" + optionsStatus.levelTxt
+       "\n\n" + optionsStatus.levelTxt
     },
     indicator: optionsStatus
   };
