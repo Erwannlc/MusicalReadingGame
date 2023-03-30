@@ -86,7 +86,7 @@ export default function getOptionsStatus (
       startNote: string
       endNote: string
     }) {
-      return FROM + " " + range.startNote + " " + TO + " " + range.endNote;
+      return range.startNote + " --> " + range.endNote;
     }
     const trebleMsg = getNotesRangeMessage(levelsMessage.treble[level]);
     const bassMsg = getNotesRangeMessage(levelsMessage.bass[level]);
