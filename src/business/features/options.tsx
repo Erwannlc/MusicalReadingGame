@@ -1,6 +1,7 @@
 import type {
   Clef,
   GameOptions,
+  KeyboardLayout,
   Language,
   Levels,
   PlayMode,
@@ -15,6 +16,7 @@ export default function getOptionsHandlers ({
   setGameSheet,
   setShowOptions,
   setLanguage,
+  setKbLayout,
   options,
   gameLength
 }: {
@@ -28,6 +30,7 @@ export default function getOptionsHandlers ({
   setGameSheet: (value: React.SetStateAction<Sheet>) => void
   setShowOptions: (value: React.SetStateAction<boolean>) => void
   setLanguage: (value: React.SetStateAction<Language>) => void
+  setKbLayout: (value: React.SetStateAction<KeyboardLayout>) => void
   options: GameOptions
   gameLength: number
 }) {
@@ -69,6 +72,10 @@ export default function getOptionsHandlers ({
     setLanguage(language);
   }
 
+  function onKbLayoutChange (kbLayout: KeyboardLayout): void {
+    setKbLayout(kbLayout);
+  }
+
   return {
     onClefChange,
     onLevelChange,
@@ -76,6 +83,7 @@ export default function getOptionsHandlers ({
     onDeviceSwitch,
     onPlayModeChange,
     onToggleOptions,
-    onLanguageChange
+    onLanguageChange,
+    onKbLayoutChange
   };
 }

@@ -6,7 +6,8 @@ import type {
   GameOptions,
   GameStatus,
   Language,
-  Messages
+  Messages,
+  KeyboardLayout
 } from "business";
 import { Status } from "business";
 import {
@@ -28,11 +29,13 @@ interface Props {
   onPlayModeChange: (playMode: PlayMode) => void
   onToggleOptions: () => void
   onLanguageChange: (language: Language) => void
+  onKbLayoutChange: (kbLayout: KeyboardLayout) => void
   options: GameOptions
   device: Device
   gameStatus: GameStatus
   showOptions: boolean
   language: Language
+  kbLayout: KeyboardLayout
   messages: Messages
 };
 
@@ -44,11 +47,13 @@ const OptionsPanel: FunctionComponent <Props> = ({
   onPlayModeChange,
   onToggleOptions,
   onLanguageChange,
+  onKbLayoutChange,
   options,
   device,
   gameStatus,
   showOptions,
   language,
+  kbLayout,
   messages
 }) => {
   const isPlaying = gameStatus.status === Status.playing;
@@ -64,7 +69,9 @@ const OptionsPanel: FunctionComponent <Props> = ({
       <MoreOptionsModal
         className="more-options"
         onLanguageChange={onLanguageChange}
+        onKbLayoutChange={onKbLayoutChange}
         language={language}
+        kbLayout={kbLayout}
         messages={messages}
       />
       <PlayModeSelector

@@ -101,7 +101,8 @@ const MusicReadingApp: FC = () => {
     onDeviceSwitch,
     onPlayModeChange,
     onToggleOptions,
-    onLanguageChange
+    onLanguageChange,
+    onKbLayoutChange
   } = getOptionsHandlers({
     setOptions,
     setDevice,
@@ -109,6 +110,7 @@ const MusicReadingApp: FC = () => {
     setGameSheet,
     setShowOptions,
     setLanguage,
+    setKbLayout,
     options,
     gameLength
   });
@@ -133,11 +135,13 @@ const MusicReadingApp: FC = () => {
     onPlayModeChange,
     onToggleOptions,
     onLanguageChange,
+    onKbLayoutChange,
     options,
     device,
     gameStatus,
     showOptions,
     language,
+    kbLayout,
     messages
   };
 

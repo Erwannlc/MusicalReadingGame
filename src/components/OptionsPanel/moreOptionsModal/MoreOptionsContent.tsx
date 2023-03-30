@@ -1,17 +1,22 @@
 import type { FC } from "react";
-import type { Language, Messages } from "business";
+import type { KeyboardLayout, Language, Messages } from "business";
 import LanguageSelector from "./LanguageSelector";
+import KBLayoutSelector from "./KeyBoardLayoutSelector";
 
 interface Props {
   onLanguageChange: (language: Language) => void
-  messages: Messages
+  onKbLayoutChange: (kbLayout: KeyboardLayout) => void
   language: Language
+  kbLayout: KeyboardLayout
+  messages: Messages
 }
 
 const MoreOptionsContent: FC<Props> = ({
   onLanguageChange,
-  messages,
-  language
+  onKbLayoutChange,
+  language,
+  kbLayout,
+  messages
 }) => {
   const className = "more-options--content";
 
@@ -25,6 +30,10 @@ const MoreOptionsContent: FC<Props> = ({
       <LanguageSelector
         onChange={onLanguageChange}
         language={language}
+        messages={messages}/>
+      <KBLayoutSelector
+        onChange={onKbLayoutChange}
+        kbLayout={kbLayout}
         messages={messages}/>
   </div>
   );

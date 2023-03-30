@@ -38,7 +38,7 @@ const keyboardKeyNotes = [
   { noteId: "C#.5", azerty: "O", qwerty: "O" },
   { noteId: "D.5", azerty: "L", qwerty: "L" },
   { noteId: "D#.5", azerty: "P", qwerty: "P" },
-  { noteId: "E.5", azerty: "M", qwerty: "semicolon" }
+  { noteId: "E.5", azerty: "M", qwerty: ";" }
 ];
 
 const pianoScale = createPianoScale("C.4", "F.5", false);
