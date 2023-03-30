@@ -7,6 +7,7 @@ import {
   playNoteSound
 } from "./pianoUtils";
 import PianoNote from "./PianoNote";
+import { getNoteLatinName } from "shared/utils";
 // Thx to Bret Cameron :
 // https://css-tricks.com/how-to-code-a-playable-synth-keyboard/
 // https://codepen.io/BretCameron/pen/MWmyWeo
@@ -102,6 +103,7 @@ const Piano: FC<Props> = ({
           onNotePlayStarted={() => {
             playNote(note);
           }}
+          tooltip={getNoteLatinName(note)}
         />
       ))}
     </ul>

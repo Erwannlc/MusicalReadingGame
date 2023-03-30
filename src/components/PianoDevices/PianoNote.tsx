@@ -11,12 +11,14 @@ interface PianoNoteProps {
   note: Note
   onNotePlayStarted: () => void
   getNotesMap: () => Map<any, any>
+  tooltip: string
 }
 
 const PianoNote: FC <PianoNoteProps> = ({
   note,
   onNotePlayStarted,
-  getNotesMap
+  getNotesMap,
+  tooltip
 }) => (
     <li
       ref={(node) => {
@@ -31,6 +33,7 @@ const PianoNote: FC <PianoNoteProps> = ({
       onMouseDown={onNotePlayStarted}
       onTouchStart={onNotePlayStarted}
       onContextMenu={(event) => { event.preventDefault(); }}
+      title={tooltip}
       >
       {getKeyfromNote(note)}
     </li>
