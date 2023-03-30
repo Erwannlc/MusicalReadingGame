@@ -4,7 +4,8 @@ import type {
   AnnounceProps,
   GameStatus,
   NotePlayed,
-  Language
+  Language,
+  KeyboardLayout
 } from "business";
 import {
   createGameSheet,
@@ -37,6 +38,7 @@ const { getMobileMediaQuery, getMessages, getWelcomeAnnounce } = utils;
 
 const MusicReadingApp: FC = () => {
   const [language, setLanguage] = useState<Language>(defaultLanguage);
+  const [kbLayout, setKbLayout] = useState<KeyboardLayout>("azerty");
   const [messages, setMessages] = useState(getMessages(language));
   const [device, setDevice] = useState<Device>(Device.Pads);
   const [options, setOptions] = useState<GameOptions>(defaultOptions);
@@ -143,7 +145,8 @@ const MusicReadingApp: FC = () => {
     onNotePlayed,
     device,
     isMobile,
-    language
+    language,
+    kbLayout
   };
 
   const vexFlowProps = {

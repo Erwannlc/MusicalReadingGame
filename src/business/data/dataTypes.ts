@@ -205,6 +205,8 @@ enum EnumNoteName {
 
 type Language = "en" | "fr";
 
+type KeyboardLayout = "qwerty" | "azerty";
+
 type Messages = Record<string, string>;
 
 export {
@@ -236,5 +238,6 @@ export type {
   GameStatus,
   NotePlayed,
   Language,
+  KeyboardLayout,
   Messages
 };

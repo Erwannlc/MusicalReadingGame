@@ -26,6 +26,7 @@ import type {
   GameStatus,
   NotePlayed,
   Language,
+  KeyboardLayout,
   Messages
 } from "./data/dataTypes";
 
@@ -69,5 +70,6 @@ export type {
   GameStatus,
   NotePlayed,
   Language,
+  KeyboardLayout,
   Messages
 };

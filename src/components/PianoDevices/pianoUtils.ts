@@ -1,4 +1,4 @@
-import type { Note } from "business";
+import type { KeyboardLayout, Note } from "business";
 import { keyboardKeyNotes, pianoScale } from "business/data/appData";
 
 function playNoteSound (
@@ -45,24 +45,29 @@ function playNoteSound (
   return osc;
 }
 
-function getKeyfromNote (note: Note): string {
+function getKeyfromNote (note: Note, kbLayout: KeyboardLayout): string {
   const keyData =
     keyboardKeyNotes.filter(keyData => keyData.noteId === note.getId());
-  return keyData[0].azerty;
+  const isAzerty = kbLayout === "azerty";
+  return isAzerty ? keyData[0].azerty : keyData[0].qwerty;
 }
 
-function getNotefromKey (key: string): Note {
-  const keyData =
-    keyboardKeyNotes.filter(keyData => keyData.azerty === key);
+function getNotefromKey (key: string, kbLayout: KeyboardLayout): Note {
+  const isAzerty = kbLayout === "azerty";
+  const keyData = isAzerty
+    ? keyboardKeyNotes.filter(keyData => keyData.azerty === key)
+    : keyboardKeyNotes.filter(keyData => keyData.qwerty === key);
   const note = pianoScale.filter(note => note.getId() === keyData[0].noteId)[0];
   return note;
 }
 
 const azertyKeys = keyboardKeyNotes.map(note => note.azerty);
+const qwertyKeys = keyboardKeyNotes.map(note => note.qwerty);
 
 export {
   playNoteSound,
   getKeyfromNote,
   getNotefromKey,
-  azertyKeys
+  azertyKeys,
+  qwertyKeys
 };

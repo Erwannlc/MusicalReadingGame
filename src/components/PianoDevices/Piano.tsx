@@ -1,10 +1,12 @@
 import type { FC, TouchEvent } from "react";
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import type { Note } from "business";
+import type { KeyboardLayout, Note } from "business";
 import {
   azertyKeys,
+  getKeyfromNote,
   getNotefromKey,
-  playNoteSound
+  playNoteSound,
+  qwertyKeys
 } from "./pianoUtils";
 import PianoNote from "./PianoNote";
 import { getNoteLatinName } from "shared/utils";
@@ -15,11 +17,13 @@ import { getNoteLatinName } from "shared/utils";
 interface Props {
   pianoScale: Note[]
   onNotePlayed: (note: Note) => void
+  kbLayout: KeyboardLayout
 };
 
 const Piano: FC<Props> = ({
   pianoScale,
-  onNotePlayed
+  onNotePlayed,
+  kbLayout
 }) => {
   const audioContext = useMemo(() => new window.AudioContext(), []);
   const oscillators = useMemo(() => new Map<string, OscillatorNode>(), []);
@@ -65,19 +69,20 @@ const Piano: FC<Props> = ({
 
   // handle piano Note played on computer's keyboard
   useEffect(() => {
+    const keys = kbLayout === "azerty" ? azertyKeys : qwertyKeys;
     function onKeyDown (e: KeyboardEvent) {
       const eventKey: string = e.key.toUpperCase();
-      if (azertyKeys.includes(eventKey) && !e.repeat) {
+      if (keys.includes(eventKey) && !e.repeat) {
         e.preventDefault();
-        playNote(getNotefromKey(eventKey));
+        playNote(getNotefromKey(eventKey, kbLayout));
       }
     }
 
     function onKeyUp (e: KeyboardEvent) {
       const eventKey: string = e.key.toUpperCase();
-      if (azertyKeys.includes(eventKey)) {
+      if (keys.includes(eventKey)) {
         e.preventDefault();
-        keyUpNoteIdRef.current = getNotefromKey(eventKey).getId();
+        keyUpNoteIdRef.current = getNotefromKey(eventKey, kbLayout).getId();
         releasePressedNotes();
       }
     }
@@ -103,6 +108,7 @@ const Piano: FC<Props> = ({
           onNotePlayStarted={() => {
             playNote(note);
           }}
+          content={getKeyfromNote(note, kbLayout)}
           tooltip={getNoteLatinName(note) + " / " + note.fullName}
         />
       ))}

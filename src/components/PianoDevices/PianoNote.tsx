@@ -1,9 +1,6 @@
 import type { FC } from "react";
 import type { Note } from "business";
 import { utils } from "shared";
-import {
-  getKeyfromNote
-} from "./pianoUtils";
 
 const { getPianoNoteColor } = utils.deviceGetters;
 
@@ -11,6 +8,7 @@ interface PianoNoteProps {
   note: Note
   onNotePlayStarted: () => void
   getNotesMap: () => Map<any, any>
+  content: string
   tooltip: string
 }
 
@@ -18,6 +16,7 @@ const PianoNote: FC <PianoNoteProps> = ({
   note,
   onNotePlayStarted,
   getNotesMap,
+  content,
   tooltip
 }) => (
     <li
@@ -35,7 +34,7 @@ const PianoNote: FC <PianoNoteProps> = ({
       onContextMenu={(event) => { event.preventDefault(); }}
       title={tooltip}
       >
-      {getKeyfromNote(note)}
+      {content}
     </li>
 );
 

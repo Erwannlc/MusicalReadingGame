@@ -1,5 +1,6 @@
 import { type FC } from "react";
-import { data, Device, type Language, type Note } from "business";
+import type { KeyboardLayout, Language, Note } from "business";
+import { data, Device } from "business";
 import Piano from "./Piano";
 import Pads from "./Pads";
 import "./pads.scss";
@@ -16,13 +17,15 @@ interface Props {
   onNotePlayed: (note: Note) => void
   isMobile: boolean
   language: Language
+  kbLayout: KeyboardLayout
 }
 
 const PianoDevice: FC<Props> = ({
   device,
   onNotePlayed,
   isMobile,
-  language
+  language,
+  kbLayout
 }) => {
   const isPiano: boolean = device === Device.Piano;
   const isPads: boolean = device === Device.Pads;
@@ -35,6 +38,7 @@ const PianoDevice: FC<Props> = ({
         <Piano
           pianoScale={scale}
           onNotePlayed={onNotePlayed}
+          kbLayout={kbLayout}
         />}
       {isPads &&
         <Pads
