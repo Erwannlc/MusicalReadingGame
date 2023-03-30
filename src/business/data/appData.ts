@@ -8,6 +8,7 @@ import type {
   Sheet,
   GameOptions,
   Language,
+  LevelsRange,
   LevelScales,
   Note,
   GameStatus
@@ -44,26 +45,48 @@ const pianoScale = createPianoScale("C.4", "F.5", false);
 const mobilePianoScale = createPianoScale("C.4", "C.5", false);
 const padsScale = createPianoScale("C.4", "C.5", true);
 
+const levelsRange: LevelsRange = {
+  treble: [
+    { startNoteId: "E.4", endNoteId: "B.4" },
+    { startNoteId: "C.4", endNoteId: "D.5" },
+    { startNoteId: "B.3", endNoteId: "A.5" },
+    { startNoteId: "A.3", endNoteId: "C.6" },
+    { startNoteId: "G.3", endNoteId: "A.6" },
+    { startNoteId: "F.3", endNoteId: "C.7" },
+    { startNoteId: "E.3", endNoteId: "A.7" },
+    { startNoteId: "E.3" }
+  ],
+  bass: [
+    { startNoteId: "C.3", endNoteId: "G.3" },
+    { startNoteId: "F.2", endNoteId: "A.3" },
+    { startNoteId: "E.2", endNoteId: "B.3" },
+    { startNoteId: "C.2", endNoteId: "C.4" },
+    { startNoteId: "B.1", endNoteId: "E.4" },
+    { startNoteId: "G.1", endNoteId: "F.4" },
+    { startNoteId: "C.1", endNoteId: "F.4" },
+    { startNoteId: "A.0", endNoteId: "F.4" }
+  ]
+};
 const levelData: LevelScales = {
   treble: {
-    [Levels.level0]: createLevelScale("E.4", "B.4"),
-    [Levels.level1]: createLevelScale("C.4", "D.5"),
-    [Levels.level2]: createLevelScale("B.3", "A.5"),
-    [Levels.level3]: createLevelScale("A.3", "C.6"),
-    [Levels.level4]: createLevelScale("G.3", "A.6"),
-    [Levels.level5]: createLevelScale("F.3", "C.7"),
-    [Levels.level6]: createLevelScale("E.3", "A.7"),
-    [Levels.level7]: createLevelScale("E.3")
+    [Levels.level0]: createLevelScale(levelsRange.treble[0]),
+    [Levels.level1]: createLevelScale(levelsRange.treble[1]),
+    [Levels.level2]: createLevelScale(levelsRange.treble[2]),
+    [Levels.level3]: createLevelScale(levelsRange.treble[3]),
+    [Levels.level4]: createLevelScale(levelsRange.treble[4]),
+    [Levels.level5]: createLevelScale(levelsRange.treble[5]),
+    [Levels.level6]: createLevelScale(levelsRange.treble[6]),
+    [Levels.level7]: createLevelScale(levelsRange.treble[7])
   },
   bass: {
-    [Levels.level0]: createLevelScale("C.3", "G.3"),
-    [Levels.level1]: createLevelScale("F.2", "A.3"),
-    [Levels.level2]: createLevelScale("E.2", "B.3"),
-    [Levels.level3]: createLevelScale("C.2", "C.4"),
-    [Levels.level4]: createLevelScale("B.1", "E.4"),
-    [Levels.level5]: createLevelScale("G.1", "F.4"),
-    [Levels.level6]: createLevelScale("C.1", "F.4"),
-    [Levels.level7]: createLevelScale("A.0", "F.4")
+    [Levels.level0]: createLevelScale(levelsRange.bass[0]),
+    [Levels.level1]: createLevelScale(levelsRange.bass[1]),
+    [Levels.level2]: createLevelScale(levelsRange.bass[2]),
+    [Levels.level3]: createLevelScale(levelsRange.bass[3]),
+    [Levels.level4]: createLevelScale(levelsRange.bass[4]),
+    [Levels.level5]: createLevelScale(levelsRange.bass[5]),
+    [Levels.level6]: createLevelScale(levelsRange.bass[6]),
+    [Levels.level7]: createLevelScale(levelsRange.bass[7])
   }
 };
 
@@ -128,6 +151,7 @@ export {
   defaultOptions,
   defaultStatus,
   defaultLanguage,
+  levelsRange,
   levelData,
   chromaticScale,
   keyboardKeyNotes,

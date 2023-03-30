@@ -1,6 +1,8 @@
 // global
 const AND = "et";
 const ON = "sur";
+const FROM = "de";
+const TO = "à";
 const ANDAHALF = "et demi";
 // appData
 const WELCOME = "Bienvenue !";
@@ -96,6 +98,8 @@ const SELECT_LANGUAGE_TOOLTIP = "Sélectionner la langue de l'interface";
 export {
   AND,
   ON,
+  FROM,
+  TO,
   ANDAHALF,
   WELCOME,
   ANNOUNCE_ON_STOP_GAME_STOPPED,

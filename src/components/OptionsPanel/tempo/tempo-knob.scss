@@ -52,6 +52,7 @@ div.tempo-option {
     box-shadow: 0 0 3px 1px black;
   }
   @media screen and (max-width: 850px)and (orientation: portrait) {
+    transition: all 0.2s ease-in-out;
     &:hover{
       transform: scale(1.5) translate(0, -1rem);
       transition: all 0.2s ease-in-out;

@@ -10,7 +10,8 @@ import type {
   Staff,
   Sheet,
   SingleClef,
-  Levels
+  Levels,
+  LevelRange
 } from "./dataTypes";
 import { levelData, chromaticScale, notes } from "./appData";
 import { randomizeInteger } from "shared/helpers";
@@ -50,15 +51,14 @@ function createPianoScale (
 };
 
 function createLevelScale (
-  startNoteId: string,
-  endNoteId?: string,
+  range: LevelRange,
   onlyNatural: boolean = true
 ): ScaleNotes {
+  const { startNoteId, endNoteId } = range;
   const startNote = notes.findIndex(note => note.getId() === startNoteId);
   const endNote = endNoteId
     ? notes.findIndex(note => note.getId() === endNoteId)
-    : null
-    ;
+    : null;
   const newScale = endNote
     ? notes.slice(startNote, endNote)
     : notes.slice(startNote);

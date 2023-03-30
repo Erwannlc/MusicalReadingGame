@@ -32,6 +32,16 @@ enum Levels {
   level6,
   level7
 }
+
+interface LevelRange {
+  startNoteId: string
+  endNoteId?: string
+};
+
+interface LevelsRange {
+  treble: LevelRange[]
+  bass: LevelRange[]
+};
 // type LevelsName = keyof typeof Levels;
 
 interface LevelScales {
@@ -217,6 +227,8 @@ export type {
   Answer,
   Staff,
   Sheet,
+  LevelRange,
+  LevelsRange,
   LevelScales,
   ClefName,
   AnnounceProps,

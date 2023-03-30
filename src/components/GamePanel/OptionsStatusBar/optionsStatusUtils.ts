@@ -1,5 +1,9 @@
 
-import { Clef, type Messages, type GameOptions } from "business";
+import type { Messages, GameOptions, NaturalNoteName } from "business";
+import { Clef } from "business";
+import type { Levels, LevelRange } from "business/data/dataTypes";
+import { levelsRange, levelData } from "business/data/appData";
+import { getNaturalNoteLatinName } from "shared/utils";
 
 export default function getOptionsStatus (
   options: GameOptions,
@@ -9,7 +13,8 @@ export default function getOptionsStatus (
 ) {
   const {
     AND,
-    ON,
+    FROM,
+    TO,
     ANDAHALF,
     OPTIONSSTATUS_DIFFICULTY,
     OPTIONSSTATUS_TEMPO_VERYSLOW,
@@ -26,7 +31,7 @@ export default function getOptionsStatus (
   } = messages;
 
   const { tempo, clef, level } = options;
-  const levelValue = level + 1;
+  const levelValue = (level + 1).toString();
 
   function getAndAHalfMessage (noun: string): string {
     if (language === "fr") {
@@ -36,29 +41,106 @@ export default function getOptionsStatus (
     } else return "";
   }
 
+  function getNoteNameFromNoteId (noteId: string) {
+    const note = noteId[0] as NaturalNoteName;
+    if (language === "fr") {
+      return getNaturalNoteLatinName(note).toUpperCase() + " " + noteId[2];
+    } else return note + " " + noteId[2];
+  };
+
+  function getLevelsMessage () {
+    function getClefLevelData (ranges: LevelRange[]) {
+      return ranges.map(level => ({
+        startNote: getNoteNameFromNoteId(level.startNoteId),
+        endNote: getNoteNameFromNoteId(level.endNoteId ?? "C8")
+      }));
+    };
+    const trebleData = getClefLevelData(levelsRange.treble);
+    const bassData = getClefLevelData(levelsRange.bass);
+    return {
+      treble: trebleData,
+      bass: bassData
+    };
+  }
+
+  const levelsMessage = getLevelsMessage();
+
+  function getRangeToOctaves (level: Levels): string {
+    const notesNumber = levelData.treble[level].length;
+    const OCTAVES = Math.round(notesNumber / 7) >= 2 ? "octaves" : "octave";
+    if (notesNumber < 7) {
+      return notesNumber.toString() + " notes";
+    } else {
+      const octavesNumber = Math.round((notesNumber / 7) * 2) / 2;
+      if (Number.isInteger(octavesNumber)) {
+        return octavesNumber.toString() + " " + OCTAVES;
+      } else {
+        return (Math.floor(octavesNumber)).toString() + " " +
+        getAndAHalfMessage(OCTAVES);
+      }
+    }
+  }
+
+  function getNotesRange (level: number): string {
+    function getNotesRangeMessage (range: {
+      startNote: string
+      endNote: string
+    }) {
+      return FROM + " " + range.startNote + " " + TO + " " + range.endNote;
+    }
+    const trebleMsg = getNotesRangeMessage(levelsMessage.treble[level]);
+    const bassMsg = getNotesRangeMessage(levelsMessage.bass[level]);
+    switch (clef) {
+      case (Clef.treble) : {
+        return trebleMsg;
+      }
+      case (Clef.bass) : {
+        return bassMsg;
+      }
+      case (Clef.both) : {
+        return trebleMsg + " " + AND + "\n " + bassMsg;
+      }
+    }
+  }
+
+  function getLevelInfo (level: Levels): string {
+    switch (clef) {
+      case (Clef.treble):
+      case (Clef.bass): {
+        return getRangeToOctaves(level) + "\n" + getNotesRange(level);
+      }
+      case (Clef.both): {
+        return (
+          "2 x " + getRangeToOctaves(level) + "\n" + getNotesRange(level)
+        );
+      }
+    }
+  }
+
+  function getTempoInfo (): string {
+    switch (tempo) {
+      case (1) :
+      case (2) : return OPTIONSSTATUS_TEMPO_VERYSLOW;
+      case (3) :
+      case (4) : return OPTIONSSTATUS_TEMPO_SLOW;
+      case (5) :
+      case (6) :
+      case (7) : return OPTIONSSTATUS_TEMPO_MODERATE;
+      case (8) :
+      case (9) : return OPTIONSSTATUS_TEMPO_FAST;
+      case (10) :
+      case (11) : return OPTIONSSTATUS_TEMPO_VERYFAST;
+      default : return "";
+    }
+  }
+
   const optionsStatus = {
     tempo: `Tempo : ${tempo.toString()} / 11 (${
-          intervalTime >= 4000
-            ? OPTIONSSTATUS_TEMPO_VERYSLOW
-            : intervalTime >= 3000
-              ? OPTIONSSTATUS_TEMPO_SLOW
-              : intervalTime > 1600
-                ? OPTIONSSTATUS_TEMPO_MODERATE
-                : intervalTime > 1000
-                  ? OPTIONSSTATUS_TEMPO_FAST
-                  : OPTIONSSTATUS_TEMPO_VERYFAST
+          getTempoInfo()
         })`,
     level:
-      `${OPTIONSSTATUS_DIFFICULTY} : ${(levelValue).toString()} / 8`,
-    levelTxt: `${
-          levelValue === 6
-            ? "5 octaves"
-            : levelValue === 5
-              ? "4 octaves"
-              : levelValue === 4
-                ? `3 ${getAndAHalfMessage("octaves")}`
-                : `${levelValue} octaves`
-        }`,
+      `${OPTIONSSTATUS_DIFFICULTY} : ${levelValue} / 8`,
+    levelTxt: `${getLevelInfo(level)}`,
     clef: `Clef : ${clef === Clef.treble
         ? "𝄞"
         : clef === Clef.bass
@@ -77,8 +159,8 @@ export default function getOptionsStatus (
       tempo: `${intervalTime / 1000} ${OPTIONSSTATUS_TOOLTIP_TEMPO}`,
       clef:
       `${optionsStatus.clefName}`,
-      level: `${OPTIONSSTATUS_TOOLTIP_LEVEL}
-       ${levelValue} ${ON} 8 (${optionsStatus.levelTxt})`
+      level: OPTIONSSTATUS_TOOLTIP_LEVEL + " " + levelValue +
+       "\n" + optionsStatus.levelTxt
     },
     indicator: optionsStatus
   };
