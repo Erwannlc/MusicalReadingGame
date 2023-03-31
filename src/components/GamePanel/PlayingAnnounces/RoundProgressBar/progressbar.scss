@@ -14,7 +14,7 @@ div.play-progressbar {
   &.shadow-node {
     filter: drop-shadow(0 0 4px hsla(37, 100%, 61%, 0.606)); // gold halo
   };
-  @media screen and (max-width: 850px) and (orientation: portrait){
+  @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait){
     max-width: 60%;
     bottom: 2dvh;
   };

@@ -107,11 +107,13 @@ div.piano-device {
 
 /* Media queries ---------- */
 
-@media screen and (max-width: 850px) and (orientation: portrait) {
+@media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
   main.app {
     grid-template-rows: 35vh var(--vexflow_height) var(--piano_height) auto; 
     grid-template-columns: repeat(5, 20vw);
     padding: 0;
+    margin: 0;
+    width: 100%;
     overflow: hidden;
     @media screen and (max-height: 670px) {
       grid-template-rows: 25vh var(--vexflow_height) var(--piano_height) auto; 
@@ -122,7 +124,7 @@ div.piano-device {
     grid-column: 5 / 6;
     place-self: start end;
     margin: 7dvh 10vw 0 0 ;
-    @media screen and (max-width: 850px) and (max-height: 700px) and (orientation: portrait) {
+    @media screen and (max-height: 700px) and (orientation: portrait) {
       grid-row: 2 / 3;
       @media screen and (max-width: 350px) { // smallest phones
         margin: 3rem 5vw 0 0;
@@ -153,6 +155,45 @@ div.piano-device {
     font-size: 90%;
   }
 }
+
+@media screen and (max-width: 1024px) and (min-width: 900px)
+ and (max-height: 600px) and (min-height: 550px) {
+//  and (orientation: landscape) { // small tablets like Nexus 7 & NestHub
+  #vexboxMobile {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    height: var(--vexflow_height);
+    width: 140px;
+    place-self: center center;
+    display: flex;
+    &.hide {
+      visibility: hidden;
+    }
+  }
+  div.piano-device {
+    grid-column: 3 / 5;
+    grid-row: 2 / 3;
+    display: flex;
+    place-self: start start;
+    margin: 0;
+    width: 100%;
+    padding: 0; // red zone
+    ul.piano {
+      margin: 0;
+      padding: 3dvh 2vw 3dvh 3vw; // red zone
+      .white {
+        width: 3.5rem;
+      }
+      .black {
+        width: 1.9rem;
+      }
+      .offset {
+        margin: 0 0 0 -2.7vw;
+      }
+    }
+  }
+}
+
 @media screen and (max-height: 420px) and (orientation: landscape) {
   main.app {
     grid-template-rows: 33vh calc(5dvh + var(--vexflow_height)) auto;
@@ -175,6 +216,7 @@ div.piano-device {
   #vexboxMobile {
     grid-column: 2 / 4;
     grid-row: 2 / 3;
+    margin-top: 4dvh;
     height: var(--vexflow_height);
     width: 140px;
     place-self: center center;
@@ -185,7 +227,8 @@ div.piano-device {
   }
   div.piano-device {
     grid-column: 4 / 7;
-    grid-row: 2 / 4;
+    grid-row: 2 / 3;
+    margin-top: 4dvh;
     display: flex;
     place-self: center start;
   }

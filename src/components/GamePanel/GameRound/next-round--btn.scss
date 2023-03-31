@@ -51,7 +51,7 @@ button.next-round {
   &:focus {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
   }
-  @media screen and (max-width: 850px) and (orientation: portrait) {
+  @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
       grid-column: 2 / 5;
   }
 }

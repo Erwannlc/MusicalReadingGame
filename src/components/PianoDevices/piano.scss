@@ -34,8 +34,6 @@
 
 
 ul.piano {
-    // grid-column: 3 / 4;
-    // grid-row: 3 / 4;
     width: 41rem;
     padding: 3rem 0 1.5rem 3rem;
     position: relative;
@@ -114,11 +112,11 @@ ul.piano {
     margin: 0 0 0 -1.1rem;
   }
 
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
     width: 90vw;
     padding: 1rem 0 1.3rem 1.5rem;
     .white {
-      height: 21vh;
+      height: 21dvh;
       width: 10.5vw;
       padding: 0.84vh 0;
     }
@@ -130,31 +128,52 @@ ul.piano {
       font-size: 0.8rem;
     }
     .offset {
-      margin: 0 0 0 -2.7vw;
+      margin: 0 0 0 -2.9vw;
     }
   };
 
+   @media screen and (max-height: 770px) and (orientation: landscape) { // Ipad
+    padding: 3dvh 2vw 3dvh 5vw; // red zone
+  }
+  @media screen and (max-height: 750px) and (orientation: landscape) { // tiny height desktop & tablets
+    padding: 3dvh 2vw 3dvh 4vw; // red zone
+      .white {
+        height: 11rem;
+      }
+      .black {
+        height: 7rem;
+      }
+  }
   @media screen and (max-height: 420px) and (orientation: landscape) {
     grid-column: 4 / 8;
     grid-row: 2 / 3;
-    width: 55vw;
     width: 100%;
     margin: 2dvh 0 0 0;
     padding: 4dvh 3vw 5dvh 4vw; // red zone
       .white {
-        height: 19vmax;
-        width: 10.5vmin;
-        padding: 0.84vmax 0;
+        height: 9.8rem;
+        width: 10.6vmin;
+        padding: 0.9vmax 0;
       }
       .black {
-        height: 12vmax;
-        width: 6vmin;
+        height: 6.3rem;
+        width: 6.1vmin;
         margin: 0 0 0 -3.28vmin;
-        padding: 0.84vmax 0;
+        padding: 0.9vmax 0;
         font-size: 0.8rem;
       }
       .offset {
-        margin: 0 0 0 -2.7vmin;
+        margin: 0 0 0 -2.9vmin;
+      }
+      @media screen and (max-width: 480px) and (orientation: landscape) { // old tiny phones
+        .white {
+          width: 10.3vmin;
+          height: 25vmax;
+        }
+        .black {
+          width: 5.5vmin;
+          height: 16vmax;
+        }
       }
   }
 }

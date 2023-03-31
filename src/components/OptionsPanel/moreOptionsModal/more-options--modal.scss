@@ -39,7 +39,7 @@ dialog.modal[open] {
   }
   animation: 0.2s ease-in-out ModalFadeIn ;
 
-  @media screen and (max-width: 850px) and (orientation: portrait) {
+  @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
     height: 60dvh;
     width: 80vw;
     margin-top: 5dvh;

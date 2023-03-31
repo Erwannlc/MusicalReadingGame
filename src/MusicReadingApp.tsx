@@ -183,7 +183,7 @@ const MusicReadingApp: FC = () => {
     isMobile,
     messages
   };
-
+  console.log(isMobile);
   return (
     <main className="app">
       <GamePanel {...gamePanelProps} />
