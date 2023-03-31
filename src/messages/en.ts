@@ -4,6 +4,7 @@ const ON = "on";
 const FROM = "from";
 const TO = "to";
 const ANDAHALF = "and a half";
+const INTERVAL = "interval";
 // appData
 const WELCOME = "Welcome";
 
@@ -22,7 +23,9 @@ const STOP_TOOLTIP = "Stop the game in progress";
 const STOP_TOOLTIP_DISABLED =
   "Press Play button to start a new game";
 // // OptionsStatus Bar
-const OPTIONSSTATUS_DIFFICULTY = "Difficulty";
+const OPTIONSSTATUS_LEVEL = "Difficulty: ";
+const OPTIONSSTATUS_CLEF = "Clef: ";
+const OPTIONSSTATUS_TEMPO = "Tempo: ";
 const OPTIONSSTATUS_TEMPO_VERYSLOW = "very slow";
 const OPTIONSSTATUS_TEMPO_SLOW = "slow";
 const OPTIONSSTATUS_TEMPO_MODERATE = "moderate";
@@ -101,6 +104,7 @@ export {
   FROM,
   TO,
   ANDAHALF,
+  INTERVAL,
   WELCOME,
   ANNOUNCE_ON_STOP_GAME_STOPPED,
   ANNOUNCE_ON_STOP_END_OF_GAME,
@@ -110,7 +114,9 @@ export {
   PLAY_TOOLTIP_FEEDBACK,
   STOP_TOOLTIP,
   STOP_TOOLTIP_DISABLED,
-  OPTIONSSTATUS_DIFFICULTY,
+  OPTIONSSTATUS_LEVEL,
+  OPTIONSSTATUS_CLEF,
+  OPTIONSSTATUS_TEMPO,
   OPTIONSSTATUS_TEMPO_VERYSLOW,
   OPTIONSSTATUS_TEMPO_SLOW,
   OPTIONSSTATUS_TEMPO_MODERATE,

@@ -54,7 +54,7 @@ const levelsRange: LevelsRange = {
     { startNoteId: "G.3", endNoteId: "A.6" },
     { startNoteId: "F.3", endNoteId: "C.7" },
     { startNoteId: "E.3", endNoteId: "A.7" },
-    { startNoteId: "E.3" }
+    { startNoteId: "E.3", endNoteId: "C.8" }
   ],
   bass: [
     { startNoteId: "C.3", endNoteId: "G.3" },

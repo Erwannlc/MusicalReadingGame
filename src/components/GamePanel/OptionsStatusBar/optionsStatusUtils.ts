@@ -14,7 +14,10 @@ export default function getOptionsStatus (
   const {
     AND,
     ANDAHALF,
-    OPTIONSSTATUS_DIFFICULTY,
+    INTERVAL,
+    OPTIONSSTATUS_LEVEL,
+    OPTIONSSTATUS_CLEF,
+    OPTIONSSTATUS_TEMPO,
     OPTIONSSTATUS_TEMPO_VERYSLOW,
     OPTIONSSTATUS_TEMPO_SLOW,
     OPTIONSSTATUS_TEMPO_MODERATE,
@@ -96,26 +99,23 @@ export default function getOptionsStatus (
         return bassMsg;
       }
       case (Clef.both) : {
-        return trebleMsg + " " + AND + "\n " + bassMsg;
+        return " 𝄞 : " + trebleMsg + "\n 𝄢 : " + bassMsg;
       }
     }
   }
 
   function getLevelInfo (level: Levels): string {
+    function getIntervalMsg () {
+      switch (clef) {
+        case (Clef.treble):
+        case (Clef.bass): return INTERVAL;
+        case (Clef.both): return INTERVAL + "s";
+      };
+    };
     const intervalMsg = language === "fr"
-      ? "interval de " + getRangeToOctaves(level)
-      : getRangeToOctaves(level) + " interval";
-    switch (clef) {
-      case (Clef.treble):
-      case (Clef.bass): {
-        return intervalMsg + "\n" + getNotesRange(level);
-      }
-      case (Clef.both): {
-        return (
-          "2 x " + intervalMsg + "\n" + getNotesRange(level)
-        );
-      }
-    }
+      ? getIntervalMsg() + " de " + getRangeToOctaves(level)
+      : getRangeToOctaves(level) + " " + getIntervalMsg();
+    return intervalMsg + "\n" + getNotesRange(level);
   }
 
   function getTempoInfo (): string {
@@ -135,31 +135,38 @@ export default function getOptionsStatus (
     }
   }
 
+  function getClefName (clef: Clef) {
+    switch (clef) {
+      case (Clef.treble): return {
+        status: "𝄞",
+        tooltip: OPTIONS_TOOLTIP_CLEF_TREBLE
+      };
+      case (Clef.bass): return {
+        status: "𝄢",
+        tooltip: OPTIONS_TOOLTIP_CLEF_BASS
+      };
+      case (Clef.both): return {
+        status: `𝄞 ${AND} 𝄢`,
+        tooltip: OPTIONS_TOOLTIP_CLEF_BOTH
+      };
+    }
+  };
+
   const optionsStatus = {
-    tempo: `Tempo : ${tempo.toString()} / 11 (${
-          getTempoInfo()
-        })`,
-    level:
-      `${OPTIONSSTATUS_DIFFICULTY} : ${levelValue} / 8`,
-    levelTxt: `${getLevelInfo(level)}`,
-    clef: `Clef : ${clef === Clef.treble
-        ? "𝄞"
-        : clef === Clef.bass
-        ? "𝄢"
-        : `𝄞 ${AND} 𝄢`}`,
-    clefName: `${clef === Clef.treble
-        ? OPTIONS_TOOLTIP_CLEF_TREBLE
-        : clef === Clef.bass
-        ? OPTIONS_TOOLTIP_CLEF_BASS
-        : OPTIONS_TOOLTIP_CLEF_BOTH}`
+    tempo: OPTIONSSTATUS_TEMPO +
+      tempo.toString() + " / 11 (" + getTempoInfo() + ")",
+    level: OPTIONSSTATUS_LEVEL + levelValue + " / 8",
+    levelTxt: getLevelInfo(level),
+    clef: OPTIONSSTATUS_CLEF + getClefName(clef).status,
+    clefTooltip: getClefName(clef).tooltip
   };
 
   const optionsStatusUIMessages = {
-    tooltips: {
+    tooltip: {
       global: OPTIONSSTATUS_TOOLTIP_GLOBAL,
       tempo: `${intervalTime / 1000} ${OPTIONSSTATUS_TOOLTIP_TEMPO}`,
       clef:
-      `${optionsStatus.clefName}`,
+      `${optionsStatus.clefTooltip}`,
       level: OPTIONSSTATUS_TOOLTIP_LEVEL + " " + levelValue +
        "\n\n" + optionsStatus.levelTxt
     },

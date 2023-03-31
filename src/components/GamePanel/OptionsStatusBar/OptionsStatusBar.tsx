@@ -23,7 +23,7 @@ const OptionsStatusBar: FC<Props> = ({
   const isIndicatorTooLarge: boolean = (
     (options.clef === Clef.both)
   );
-  const { tooltips, indicator } = getOptionsStatus(
+  const { tooltip, indicator } = getOptionsStatus(
     options,
     intervalTime,
     language,
@@ -37,12 +37,12 @@ const OptionsStatusBar: FC<Props> = ({
   return (
     <div
       className={className}
-      title={tooltips.global}
+      title={tooltip.global}
       onClick={onToggleOptions}
     >
-      <span title={tooltips.tempo}>{indicator.tempo}</span>
-      <span title={tooltips.level}>{indicator.level}</span>
-      <span title={tooltips.clef}>{indicator.clef}</span>
+      <span title={tooltip.tempo}>{indicator.tempo}</span>
+      <span title={tooltip.level}>{indicator.level}</span>
+      <span title={tooltip.clef}>{indicator.clef}</span>
     </div>
   );
 };
