@@ -13,8 +13,6 @@ export default function getOptionsStatus (
 ) {
   const {
     AND,
-    FROM,
-    TO,
     ANDAHALF,
     OPTIONSSTATUS_DIFFICULTY,
     OPTIONSSTATUS_TEMPO_VERYSLOW,
