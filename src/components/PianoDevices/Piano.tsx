@@ -1,12 +1,8 @@
 import type { FC, TouchEvent } from "react";
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import type { KeyboardLayout, Note } from "business";
+import type { Note } from "business";
 import {
-  azertyKeys,
-  getKeyfromNote,
-  getNotefromKey,
-  playNoteSound,
-  qwertyKeys
+  playNoteSound
 } from "./pianoUtils";
 import PianoNote from "./PianoNote";
 import { getNoteLatinName } from "shared/utils";
@@ -15,15 +11,19 @@ import { getNoteLatinName } from "shared/utils";
 // https://codepen.io/BretCameron/pen/MWmyWeo
 
 interface Props {
-  pianoScale: Note[]
   onNotePlayed: (note: Note) => void
-  kbLayout: KeyboardLayout
+  getNotePrint: (note: Note) => string
+  getNotefromKey: (key: string) => Note
+  pianoScale: Note[]
+  keys: string[]
 };
 
 const Piano: FC<Props> = ({
-  pianoScale,
   onNotePlayed,
-  kbLayout
+  getNotePrint,
+  getNotefromKey,
+  pianoScale,
+  keys
 }) => {
   const audioContext = useMemo(() => new window.AudioContext(), []);
   const oscillators = useMemo(() => new Map<string, OscillatorNode>(), []);
@@ -69,12 +69,11 @@ const Piano: FC<Props> = ({
 
   // handle piano Note played on computer's keyboard
   useEffect(() => {
-    const keys = kbLayout === "azerty" ? azertyKeys : qwertyKeys;
     function onKeyDown (e: KeyboardEvent) {
       const eventKey: string = e.key.toUpperCase();
       if (keys.includes(eventKey) && !e.repeat) {
         e.preventDefault();
-        playNote(getNotefromKey(eventKey, kbLayout));
+        playNote(getNotefromKey(eventKey));
       }
     }
 
@@ -82,7 +81,7 @@ const Piano: FC<Props> = ({
       const eventKey: string = e.key.toUpperCase();
       if (keys.includes(eventKey)) {
         e.preventDefault();
-        keyUpNoteIdRef.current = getNotefromKey(eventKey, kbLayout).getId();
+        keyUpNoteIdRef.current = getNotefromKey(eventKey).getId();
         releasePressedNotes();
       }
     }
@@ -108,7 +107,7 @@ const Piano: FC<Props> = ({
           onNotePlayStarted={() => {
             playNote(note);
           }}
-          content={getKeyfromNote(note, kbLayout)}
+          notePrint={getNotePrint(note)}
           tooltip={getNoteLatinName(note) + " / " + note.fullName}
         />
       ))}

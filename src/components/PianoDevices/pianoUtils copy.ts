@@ -53,6 +53,21 @@ interface KeyNote {
   key: string
 };
 
+function getPianoNotePrint (
+  isMobile: boolean,
+  keysNotes: KeyNote[],
+  language: Language
+) {
+  function getNotePrint (note: Note) {
+    const noteNamePrint = language === "fr"
+      ? getNoteLatinName(note)
+      : note.naturalName;
+    const keyNotePrint = getKeyfromNote(note, keysNotes);
+    return isMobile ? noteNamePrint : keyNotePrint;
+  }
+  return getNotePrint;
+};
+
 function getKeys (kbLayout: KeyboardLayout): string[] {
   return kbLayout === "azerty"
     ? azertyKeys
@@ -66,43 +81,27 @@ function getKeysNotes (keys: string[]): KeyNote[] {
   }));
 }
 
-function getPianoNoteData (
-  isMobile: boolean,
-  language: Language,
-  kbLayout: KeyboardLayout
-) {
-  const keys = getKeys(kbLayout);
-  const keysNotes = getKeysNotes(keys);
-  function getNotePrint (note: Note) {
-    const noteNamePrint = language === "fr"
-      ? getNoteLatinName(note)
-      : note.naturalName;
-    const keyNotePrint = getKeyfromNote(note, keysNotes);
-    return isMobile ? noteNamePrint : keyNotePrint;
-  }
-  function getNotefromKey (key: string) {
-    const keyData = keysNotes.filter(keyData =>
-      keyData.key === key);
-    const note = pianoScale.filter(note =>
-      note.getId() === keyData[0].noteId)[0];
-    return note;
-  }
-  return {
-    keys,
-    getNotePrint,
-    getNotefromKey
-  };
-};
-
 function getKeyfromNote (note: Note, keysNotes: KeyNote[]): string {
   const keyData = keysNotes.filter(keyData => keyData.noteId === note.getId());
   return keyData[0].key;
 }
 
+function getNotefromKeys (keysNotes: KeyNote[]) {
+  function getNotefromKey (key: string) {
+    const keyData = keysNotes.filter(keyData => keyData.key === key);
+    const note = pianoScale.filter(note => note.getId() === keyData[0].noteId)[0];
+    return note;
+  }
+  return getNotefromKey;
+}
+
 export {
   playNoteSound,
   getKeyfromNote,
-  getPianoNoteData
+  getNotefromKeys,
+  getPianoNotePrint,
+  getKeys,
+  getKeysNotes
 };
 
 export type {

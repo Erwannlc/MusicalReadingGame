@@ -1,6 +1,9 @@
 import { type FC } from "react";
 import type { KeyboardLayout, Language, Note } from "business";
 import { data, Device } from "business";
+import {
+  getPianoNoteData
+} from "./pianoUtils";
 import Piano from "./Piano";
 import Pads from "./Pads";
 import "./pads.scss";
@@ -31,6 +34,16 @@ const PianoDevice: FC<Props> = ({
   const isPads: boolean = device === Device.Pads;
   const scale = isMobile ? mobilePianoScale : pianoScale;
 
+  const {
+    keys,
+    getNotePrint,
+    getNotefromKey
+  } = getPianoNoteData(
+    isMobile,
+    language,
+    kbLayout
+  );
+
   return (
   <>
     <div className="piano-device">
@@ -38,7 +51,9 @@ const PianoDevice: FC<Props> = ({
         <Piano
           pianoScale={scale}
           onNotePlayed={onNotePlayed}
-          kbLayout={kbLayout}
+          keys={keys}
+          getNotefromKey={getNotefromKey}
+          getNotePrint={getNotePrint}
         />}
       {isPads &&
         <Pads

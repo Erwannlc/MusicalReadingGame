@@ -8,7 +8,7 @@ interface PianoNoteProps {
   note: Note
   onNotePlayStarted: () => void
   getNotesMap: () => Map<any, any>
-  content: string
+  notePrint: string
   tooltip: string
 }
 
@@ -16,7 +16,7 @@ const PianoNote: FC <PianoNoteProps> = ({
   note,
   onNotePlayStarted,
   getNotesMap,
-  content,
+  notePrint,
   tooltip
 }) => (
     <li
@@ -34,7 +34,7 @@ const PianoNote: FC <PianoNoteProps> = ({
       onContextMenu={(event) => { event.preventDefault(); }}
       title={tooltip}
       >
-      {content}
+      {notePrint}
     </li>
 );
 
