@@ -6,10 +6,8 @@ import { useState, useEffect } from "react";
 export default function useMediaQuery (initalQuery: string) {
   const [query, setQuery] = useState(initalQuery);
   const firstRenderScreen = window.matchMedia(
-    "screen and (max-width: 850px) and (max-height: 1023px)," +
-    " screen and (max-height: 420px) and (orientation: landscape)" +
-    " screen and (max-width: 960px) and (max-height: 600px)" +
-    " and (orientation: landscape)"
+    "screen and (max-width: 650px) and (max-height: 960px)," +
+    " screen and (max-height: 420px) and (orientation: landscape)"
   ).matches;
   // change default value by checking first render
   const [matches, setMatches] = useState(firstRenderScreen);

@@ -132,12 +132,10 @@ function highlightWrongNote (
 }
 
 function getMobileMediaQuery () {
-  return `screen and (max-width: 850px) and (max-height: 1023px),
+  return `screen and (max-width: 650px) and (max-height: 960px),
   screen and (max-height: 420px) and (orientation: landscape),
   screen and (max-width: 1024px) and (max-height: 600px)
   `;
-  // screen and (max-width: 1024px) and (max-height: 600px)
-  // and (orientation: landscape)`;
 }
 
 function getWelcomeAnnounce (language: Language): AnnounceProps {

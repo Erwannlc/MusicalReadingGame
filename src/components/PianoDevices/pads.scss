@@ -46,7 +46,8 @@ div.pads {
       hsl(0, 0%, 27%) 0%,
       hsl(0, 0%, 13%) 100%);
   }
-  @media screen and (max-width: 850px) and (max-height: 1023px) {
+  @media screen and (max-width: 650px) and (max-height: 960px) and (orientation: portrait) {
+  // @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
     margin-top: 0;
     & button {
       margin: 1rem 0.1rem;

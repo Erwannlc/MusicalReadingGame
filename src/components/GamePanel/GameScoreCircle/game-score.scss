@@ -16,7 +16,8 @@ div.game-score {
   &.hide {
     display: none;
   }
-  @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait){
+  @media screen and (max-width: 650px) and (max-height: 960px) and (orientation: portrait) {
+  // @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait){
     grid-row: 3 / 4;
     place-self: start center;
     @media screen and (max-height: 670px) { 

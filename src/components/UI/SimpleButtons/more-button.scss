@@ -46,7 +46,8 @@
     box-shadow: inset 5px 5px 10px #171610,
      inset -5px -5px 10px #23221a;    
   }
-  @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
+  @media screen and (max-width: 650px) and (max-height: 960px) and (orientation: portrait) {
+  // @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
     width: calc(calc(var(--btn-height) + 5vmin));
     height: calc(var(--btn-height) + 0.5rem);
     top: 8%;

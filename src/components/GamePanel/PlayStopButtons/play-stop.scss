@@ -10,8 +10,6 @@ $color2-active: hsl(37, 100%, 61%);
 $color-disabled: hsl(0, 0%, 21%);
 $gold: var(--gold);
 
-
-
 .play-stop--buttons {
   display: inline-flex;
   position: relative;
@@ -108,10 +106,7 @@ $gold: var(--gold);
       top: 4px;
       & svg path {
         fill: $color2-active;
-      }  
-      @media screen and (max-width: 850px) and (max-height: 1023px) {
-        top: 0px;
-      }        
+      }     
       &:before {
         bottom: -($buttonOffset - 4px);
       }
@@ -121,9 +116,6 @@ $gold: var(--gold);
       & svg path {
         fill: $color1-active;
       }  
-      @media screen and (max-width: 850px) and (max-height: 1023px) {
-      top: 0px;
-      }      
       &:before {
         bottom: -($buttonOffset - 4px);
       }
@@ -143,5 +135,14 @@ $gold: var(--gold);
         bottom: -($buttonOffset - $buttonOffset);
       }
     }
+    @media screen and (max-width: 650px) and (max-height: 960px) and (orientation: portrait) {
+      // @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
+        &.stop:hover:not(:disabled),
+        &.play:hover:not(.is-play) {
+          top: 0px;
+      } 
+    }
   }
+
 }
+

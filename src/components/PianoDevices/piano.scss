@@ -113,11 +113,13 @@ ul.piano {
     margin: 0 0 0 -1rem;
   }
 
-  @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
-    height: 89%;
+  @media screen and (max-width: 650px) and (max-height: 960px) and (orientation: portrait) {
+  // @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
+    height: 85%;
     width: 92%;
-    padding: 1.6rem 0 0 0;
+    padding: 3dvh 0 0 0;
     margin-top: 5dvh;
+    font-size: 0.9rem;
     .white {
       height: 18dvh;
       width: 10.5vw;
@@ -126,7 +128,7 @@ ul.piano {
       height: 11.5dvh;
       width: 6vw;
       margin: 0 0 0 -3vw;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
     .offset {
       margin: 0 0 0 -3vw;
@@ -134,22 +136,24 @@ ul.piano {
     @media screen and (max-width: 384px) and (max-height: 740px) {
       height: 80%;
       .white {
-        height: 21dvh;
+        height: 23dvh;
       }
       .black {
         height: 13.4dvh;
+        font-size: 0.6rem;
       }
     }
   };
 
-   @media screen and (max-height: 770px) and (orientation: landscape) { // IPAD
+   @media screen and (max-height: 770px) and (min-width: 1024px) and (orientation: landscape) { // IPAD
     height: 100%;
-    margin-top: 1rem;
-    padding-top: 1.8rem;
+    margin-top: -2dvh;
+    // padding-top: 1.0rem;
+    padding: 4dvh 0 2dvh;
     transform: scale(0.95);
   }
 
-  @media screen and (max-height: 750px) and (min-height: 600px) and (orientation: landscape) { // tiny height desktop & tablets
+  @media screen and (max-height: 750px) and (min-height: 600px) and (orientation: landscape) { // small height desktop & tablets
     margin: 0;
     padding: 5dvh 4vw 7dvh 4vw; // red zone
       .white {
@@ -160,6 +164,7 @@ ul.piano {
         height: 7rem;
         width: 6vw;
         margin: 0 0 0 -3vmin;
+        font-size: 0.7rem;
       }
       .offset {
         margin: 0 0 0 -2vmin;
@@ -176,12 +181,13 @@ ul.piano {
       .white {
         height: 37dvh;
         width: 10.6vmin;
+        font-size: 0.9rem;
       }
       .black {
         height: 24dvh;
         width: 6.1vmin;
         margin: 0 0 0 -3vmin;
-        font-size: 0.8rem;
+        font-size: 0.6rem;
       }
       .offset {
         margin: 0 0 0 -3.2vmin;
