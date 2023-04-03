@@ -20,7 +20,7 @@ div.options {
     background-blend-mode: multiply;
     padding: 5% 8%;
     transform: translateY(-110%);
-    transition: transform 0.3s ease-in;
+    transition: transform 0.2s ease-in-out;
     border-radius: 15px;
     border: 6px solid black;
     -webkit-touch-callout: none; /* iOS Safari */
@@ -41,11 +41,11 @@ div.options {
       transform: translateY(0);
     }
     &.animate {
-      transition: transform 0.4s ease-in-out;
+      transition: transform 0.3s ease-in-out;
     }
   }
   @media screen and (max-width: 650px) and (max-height: 960px) and (orientation: portrait) {
-  // @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
+  
     &.panel {
       grid-row: 1 / 4;
       min-width: 0;

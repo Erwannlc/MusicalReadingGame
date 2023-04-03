@@ -45,7 +45,7 @@ button.chevron-up {
     }
   }
   @media screen and (max-width: 650px) and (max-height: 960px) and (orientation: portrait){
-  // @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
+  
     width: calc(var(--btn-size) + 18vw);
     height: calc(var(--btn-size) + 0.5rem);
     top: 8%;

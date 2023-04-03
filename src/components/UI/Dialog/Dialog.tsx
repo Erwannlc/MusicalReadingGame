@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import type { FC, MouseEvent, TouchEvent } from "react";
 import { CloseButton } from "components/UI";
-// import "./dialog.scss";
+import "./dialog.scss";
 
 // thx to https://codesandbox.io/u/souporserious
 // https://souporserious.com/build-a-dialog-component-in-react/

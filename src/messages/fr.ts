@@ -48,8 +48,8 @@ const FEEDBACK_UPGRADE_OPTIONS =
   "la difficulté (accélérez le tempo" +
   "ou passer au niveau suivant dans les options";
 const FEEDBACK_DOWNGRADE_OPTIONS =
-  "Essayez d'atteindre un score d'au moins 80 % !" +
-  "Réduisez le tempo ou le niveau si besoin.";
+  "Essayez d'atteindre un score d'au moins 80 % ! " +
+  "\n Réduisez le tempo ou le niveau si besoin.";
 const FEEDBACK_DISPLAY_CORRECTION = "Cliquez ici pour afficher la correction";
 const QUIT_GAME = "Quitter la partie";
 // // Correction

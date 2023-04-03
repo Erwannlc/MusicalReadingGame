@@ -52,12 +52,20 @@ button.next-round {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
   }
   @media screen and (max-width: 650px) and (max-height: 960px) and (orientation: portrait) {
-  // @media screen and (max-width: 850px) and (max-height: 1023px) and (orientation: portrait) {
+  
       grid-column: 2 / 5;
   }
 
   @media screen and (max-height: 770px) and (min-width: 1024px) and (orientation: landscape) { // IPAD
     margin: -4dvh;
   }
+  @media screen and (max-height: 420px) and (orientation: landscape) {
+    grid-row: 2 / 3;
+    grid-column: 4 / 7;
+    margin: 0;
+  }
+
+
+  
 }
 
