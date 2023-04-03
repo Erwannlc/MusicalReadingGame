@@ -68,7 +68,9 @@ ul.piano {
     border-left: 1px solid var(--border-note--color);
     border-bottom: 1px solid var(--border-note--color);
     border-radius: 0 0 5px 5px;
-    box-shadow: -1px 0 0 var(--piano--white-80) inset, 0 0 5px hsl(0, 0%, 80%) inset,
+    box-shadow:
+      -1px 0 0 var(--piano--white-80) inset, 
+      0 0 5px hsl(0, 0%, 80%) inset,
       0 0 3px var(--piano--black-20);
     background: linear-gradient(to bottom, var(--note-bg--bottom) 0%, white 100%);
     color: var(--piano--black-30);
@@ -82,8 +84,10 @@ ul.piano {
     margin: 0 0 0 -1.1rem;
     border: 1px solid black;
     border-radius: 0 0 3px 3px;
-    box-shadow: -1px -1px 2px var(--piano--white-20) inset,
-      0 -5px 2px 3px var(--piano--black-60) inset, 0 2px 4px var(--piano--black-50);
+    box-shadow:
+      -1px -1px 2px var(--piano--white-20) inset,
+      0 -5px 2px 3px var(--piano--black-60) inset,
+      0 2px 4px var(--piano--black-50);
     background: linear-gradient(45deg, hsl(0, 0%, 13%) 0%, hsl(0, 0%, 33%) 100%);
     color: var(--piano--white-50);
   }
@@ -92,20 +96,23 @@ ul.piano {
     border-top: 1px solid hsl(0, 0%, 47%);
     border-left: 1px solid hsl(0, 0%, 60%);
     border-bottom: 1px solid hsl(0, 0%, 60%);
-    box-shadow: 2px 0 3px var(--piano--black-10) inset,
-      -5px 5px 20px var(--piano--black-20) inset, 0 0 3px var(--piano--black-20);
+    box-shadow:
+      2px 0 3px var(--piano--black-10) inset,
+      -5px 5px 20px var(--piano--black-20) inset,
+      0 0 3px var(--piano--black-20);
     background: linear-gradient(to bottom, white 0%, hsl(0, 0%, 91%) 100%);
     outline: none;
   }
 
   .black.pressed {
-    box-shadow: -1px -1px 2px var(--piano--white-20) inset,
-      0 -2px 2px 3px var(--piano--black-60) inset, 0 1px 2px var(--piano--black-50);
+    box-shadow:
+      -1px -1px 2px var(--piano--white-20) inset,
+      0 -2px 2px 3px var(--piano--black-60) inset, 
+      0 1px 2px var(--piano--black-50);
     background: linear-gradient(
       to right,
       hsl(0, 0%, 27%) 0%,
-      hsl(0, 0%, 13%) 100%
-    );
+      hsl(0, 0%, 13%) 100%);
     outline: none;
   }
 
@@ -136,13 +143,15 @@ ul.piano {
     }
   };
 
-   @media screen and (max-height: 770px) and (min-width: 1024px) and (orientation: landscape) { // IPAD
+  // IPAD
+  @media screen and (max-height: 770px) and (min-width: 1024px) and (orientation: landscape) { 
     height: 100%;
     margin-top: -2dvh;
     transform: scale(0.95);
   }
 
-  @media screen and (max-height: 750px) and (min-height: 600px) and (orientation: landscape) { // small height desktop & tablets
+  // small height desktop & tablets
+  @media screen and (max-height: 750px) and (min-height: 600px) and (orientation: landscape) { 
     margin: 0;
     height: 85%;
     padding: 5dvh 4vw 0; // red zone
