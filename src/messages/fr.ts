@@ -42,13 +42,13 @@ const NEXTROUND_BUTTON = "Note suivante";
 // // FeedBack Score
 const FEEDBACK_YOU_HAVE = "Vous avez ";
 const FEEDBACK_GOOD_ANSWERS = " de bonnes réponses";
-const FEEDBACK_CONGRATS = "Bravo !";
+const FEEDBACK_CONGRATS = "Bravo\u00a0!";
 const FEEDBACK_UPGRADE_OPTIONS =
   "Continuez à progresser en augmentant " +
-  "la difficulté (accélérez le tempo" +
-  "ou passer au niveau suivant dans les options";
+  "la difficulté (accélérez le tempo " +
+  "ou passer au niveau suivant dans les options ";
 const FEEDBACK_DOWNGRADE_OPTIONS =
-  "Essayez d'atteindre un score d'au moins 80 % ! " +
+  "Essayez d'atteindre un score d'au moins 80%\u00a0! " +
   "\n Réduisez le tempo ou le niveau si besoin.";
 const FEEDBACK_DISPLAY_CORRECTION = "Cliquez ici pour afficher la correction";
 const QUIT_GAME = "Quitter la partie";

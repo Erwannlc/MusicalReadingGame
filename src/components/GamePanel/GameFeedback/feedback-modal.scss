@@ -1,8 +1,9 @@
 div.game-info {
   dialog.modal.announce[open] { // UI/Dialog/dialog.scss
-    height: 56dvh;
+    height: 60dvh;
     width: 90vw;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    margin-top: 2dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,11 +48,12 @@ div.game-info {
     @media screen and (max-width: 385px) and (orientation: portrait) { // medium size mobiles
       height: 61dvh;
       width: 95vw;
+      margin-top: 0.5rem;
       & div.feedback {
         & div.correction {
           font-size: 0.9rem;
           margin: 0;
-          flex-direction: row;
+          flex-direction: row;          
           @media screen and (max-width: 350px) and (max-height: 500px) and (orientation: portrait) {  // old & tiny phones (iPhone4)
             & div.correction-answers, 
             & div.correction-solution {
