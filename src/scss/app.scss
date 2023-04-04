@@ -109,14 +109,14 @@ div.piano-device {
 
 @media screen and (max-width: 650px) and (max-height: 960px) and (orientation: portrait) {
   main.app {
-    grid-template-rows: 35dvh var(--vexflow_height) 28dvh 10dvh; 
+    grid-template-rows: 35dvh var(--vexflow_height) 28dvh calc(100dvh - 63dvh - var(--vexflow_height)); 
     grid-template-columns: repeat(5, 20vw);
     padding: 0;
     margin: 0;
     width: 100%;
     overflow: hidden;
     @media screen and (max-height: 670px) {
-      grid-template-rows: 25dvh var(--vexflow_height) 32dvh 10vh; 
+      grid-template-rows: 25dvh var(--vexflow_height) 32dvh calc(100dvh - 57dvh - var(--vexflow_height)); 
     }
   }
   div.options-switch {

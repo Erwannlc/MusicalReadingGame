@@ -1,6 +1,7 @@
 .more-button {
    --btn-height: calc(1.1rem + 2vmin);
    --btn-width: calc(var(--btn-height) + 1vmin);
+    --button-background--color: hsla(40, 6%, 10%, 0.637);
   height: var(--btn-height);
   width: var(--btn-width);
   position: absolute;
@@ -11,6 +12,7 @@
   align-items: center;
   border: none;
   border-radius: 10px;
+  border: 1px solid hsl(40, 6%, 10%);
   background: var(--button-background--color);
   box-shadow:  5px 5px 10px #171610,
     -5px -5px 10px #23221a;

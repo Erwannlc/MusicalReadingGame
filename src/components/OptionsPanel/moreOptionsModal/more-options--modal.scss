@@ -32,6 +32,11 @@ dialog.modal.more-options[open] {
       display: flex;
       justify-content: center;
       color: var(--options-panel--color);
+      label { 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;    
+      }
       p.title {
         color:aliceblue;
       }

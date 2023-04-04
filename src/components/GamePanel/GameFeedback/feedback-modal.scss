@@ -1,95 +1,94 @@
-div.game-info {
-  dialog.modal.announce[open] { // UI/Dialog/dialog.scss
-    height: 60dvh;
-    width: 90vw;
-    margin-top: 1rem;
-    margin-top: 2dvh;
+
+dialog.modal.announce[open] { // UI/Dialog/dialog.scss
+  height: 60dvh;
+  width: 90vw;
+  margin-top: 1rem;
+  margin-top: 2dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &::backdrop {
+    backdrop-filter: blur(0px) brightness(0.9);
+    -webkit-backdrop-filter: blur(0px) brightness(0.9);
+  } 
+  & div.feedback {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    &::backdrop {
-      backdrop-filter: blur(0px) brightness(0.9);
-      -webkit-backdrop-filter: blur(0px) brightness(0.9);
-    } 
+    @media screen and (orientation: portrait) { 
+      & div.correction { // inside "correction.scss"
+        font-size: 1rem;
+        flex-direction: row;         
+        & div.correction-answers, 
+        & div.correction-solution {
+          & h1 {
+            font-size: 0.9rem;
+            margin: 0 1.5rem 0.5rem;
+          }
+          & div.notes {
+            flex-direction: column;
+            align-items: center;
+            & div.note {
+              border-right: none;
+              padding: 0.2rem 0;
+              &:not(:last-child){
+                border-bottom: 1px solid var(--correction--border-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 385px) and (orientation: portrait) { // medium size mobiles
+    height: 61dvh;
+    width: 95vw;
+    margin-top: 0.5rem;
     & div.feedback {
-      height: 100%;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      @media screen and (orientation: portrait) { 
-        & div.correction { // inside "correction.scss"
-          font-size: 1rem;
-          flex-direction: row;         
-          & div.correction-answers, 
-          & div.correction-solution {
-            & h1 {
-              font-size: 0.9rem;
-              margin: 0 1.5rem 0.5rem;
-            }
-            & div.notes {
-              flex-direction: column;
-              align-items: center;
-              & div.note {
-                border-right: none;
-                padding: 0.2rem 0;
-                &:not(:last-child){
-                  border-bottom: 1px solid var(--correction--border-color);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    @media screen and (max-width: 385px) and (orientation: portrait) { // medium size mobiles
-      height: 61dvh;
-      width: 95vw;
-      margin-top: 0.5rem;
-      & div.feedback {
-        & div.correction {
-          font-size: 0.9rem;
-          margin: 0;
-          flex-direction: row;          
-          @media screen and (max-width: 350px) and (max-height: 500px) and (orientation: portrait) {  // old & tiny phones (iPhone4)
-            & div.correction-answers, 
-            & div.correction-solution {
-              & div.notes {
-                & div.note {
-                  padding: 0 0.4rem;
-                  width: 1.9rem;
-                }
-              }
-            } 
-          }
-        }
-      }
-    }
-
-    @media screen and (max-height: 420px) and (orientation: landscape) {
-      top: 38dvh;
-      height: 45dvh;
-      min-width: 0;
-      width: 85vw;
-      opacity: 0.9;
-      & div.feedback {
+      & div.correction {
+        font-size: 0.9rem;
         margin: 0;
-        justify-content: flex-start;
-        & div.correction { 
-          font-size: 0.9rem;
+        flex-direction: row;          
+        @media screen and (max-width: 350px) and (max-height: 500px) and (orientation: portrait) {  // old & tiny phones (iPhone4)
           & div.correction-answers, 
           & div.correction-solution {
-            & h1 {
-              margin: 0 0 0.4rem 0;
+            & div.notes {
+              & div.note {
+                padding: 0 0.4rem;
+                width: 1.9rem;
+              }
             }
+          } 
+        }
+      }
+    }
+  }
+
+  @media screen and (max-height: 420px) and (orientation: landscape) {
+    top: 38dvh;
+    height: 45dvh;
+    min-width: 0;
+    width: 85vw;
+    opacity: 0.9;
+    & div.feedback {
+      margin: 0;
+      justify-content: flex-start;
+      & div.correction { 
+        font-size: 0.9rem;
+        & div.correction-answers, 
+        & div.correction-solution {
+          & h1 {
+            margin: 0 0 0.4rem 0;
           }
-          & div.correction-solution {
-            & h1 {
-              margin-top: 1.5rem;
-            }
+        }
+        & div.correction-solution {
+          & h1 {
+            margin-top: 1.5rem;
           }
         }
       }

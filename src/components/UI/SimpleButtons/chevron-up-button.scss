@@ -17,6 +17,7 @@ button.chevron-up {
   background: transparent;
   border: none;
   border-radius: 10px;
+  border: 1px solid hsl(40, 6%, 10%);
   background: var(--button-background--color);
   box-shadow:  5px 5px 10px #171610,
     -5px -5px 10px #23221a;
