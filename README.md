@@ -20,4 +20,4 @@ Cette application facilite l'entrainement à la lecture de notes. Vous pourrez a
 
 Application based on React/Typescript.
 
-See live demo : http://musical-reading-game.s3-website.eu-west-3.amazonaws.com/
+See live demo : https://erwannlc.github.io/
