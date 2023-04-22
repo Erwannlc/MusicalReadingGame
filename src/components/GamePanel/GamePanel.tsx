@@ -189,7 +189,7 @@ const GamePanel: FC<Props> = ({
         messages={messages}
       />
       {displayScore &&
-          <GameScore score={score} gameLength={gameLength}
+        <GameScore score={score} gameLength={gameLength}
       />}
       {isManualMode && isPlaying && round > 0 &&
         <NextRoundButton
