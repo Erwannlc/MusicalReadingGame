@@ -5,7 +5,6 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "plugin:prettier/recommended",
     "standard-with-typescript",
     "react-app"
   ],
