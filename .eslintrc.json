@@ -5,6 +5,7 @@
   },
   "extends": [
     "plugin:react/recommended",
+    "plugin:prettier/recommended",
     "standard-with-typescript",
     "react-app"
   ],
@@ -30,14 +31,15 @@
       { "allowTemplateLiterals": true }
     ],
     "@typescript-eslint/semi": ["error", "always"],
+    "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/promise-function-async": "off",
     "@typescript-eslint/no-misused-promises": "off",
+        
     "arrow-body-style": ["error", "as-needed"],
     "multiline-ternary": ["error", "always-multiline"],
     "no-console": "warn"
