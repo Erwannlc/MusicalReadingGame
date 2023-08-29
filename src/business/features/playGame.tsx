@@ -87,6 +87,7 @@ function getPlayGameHandlers ({
   }
 
   function initializeGame () {
+    notePlayedRef.current = undefined;
     (async () => {
       if (isAutoPlay) {
         countdown();
