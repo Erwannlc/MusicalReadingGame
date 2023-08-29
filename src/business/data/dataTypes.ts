@@ -68,13 +68,13 @@ interface LevelScales {
 }
 
 type NaturalNoteName =
-"A" |
-"B" |
-"C" |
-"D" |
-"E" |
-"F" |
-"G" ;
+  "A" |
+  "B" |
+  "C" |
+  "D" |
+  "E" |
+  "F" |
+  "G";
 
 interface NoteName {
   naturalName: NaturalNoteName
@@ -82,23 +82,20 @@ interface NoteName {
   isRest?: boolean
 };
 
-const chromaticScale: NoteName[] = [
-  { naturalName: "A", isSharp: false },
-  { naturalName: "A", isSharp: true },
-  { naturalName: "B", isSharp: false },
-  { naturalName: "C", isSharp: false },
-  { naturalName: "C", isSharp: true },
-  { naturalName: "D", isSharp: false },
-  { naturalName: "D", isSharp: true },
-  { naturalName: "E", isSharp: false },
-  { naturalName: "F", isSharp: false },
-  { naturalName: "F", isSharp: true },
-  { naturalName: "G", isSharp: false },
-  { naturalName: "G", isSharp: true }
-];
+interface NoteType {
+  name: NoteName
+  octave: number
+  naturalName: NaturalNoteName
+  fullName: string
+  isSharp: boolean
+  isRest: boolean
+  getId: () => string
+  play: () => void
+  getHz: () => number
+}
 
-class Note {
-  constructor (name: NoteName, octave: number) {
+class Note implements NoteType {
+  constructor(name: NoteName, octave: number) {
     this.name = name;
     this.naturalName = name.naturalName;
     this.isSharp = name.isSharp;
@@ -114,14 +111,14 @@ class Note {
   isSharp: boolean;
   isRest: boolean;
 
-  getId (): string {
+  getId(): string {
     return `${this.fullName}.${this.octave}`;
   }
 
-  play (): void {
+  play(): void {
   }
 
-  getHz (): number {
+  getHz(): number {
     const index = chromaticScale.indexOf(this.name);
     const A4 = 440;
     const octave: number = this.naturalName === "A" || this.naturalName === "B"
@@ -132,6 +129,21 @@ class Note {
     return freq;
   };
 }
+
+const chromaticScale: NoteName[] = [
+  { naturalName: "A", isSharp: false },
+  { naturalName: "A", isSharp: true },
+  { naturalName: "B", isSharp: false },
+  { naturalName: "C", isSharp: false },
+  { naturalName: "C", isSharp: true },
+  { naturalName: "D", isSharp: false },
+  { naturalName: "D", isSharp: true },
+  { naturalName: "E", isSharp: false },
+  { naturalName: "F", isSharp: false },
+  { naturalName: "F", isSharp: true },
+  { naturalName: "G", isSharp: false },
+  { naturalName: "G", isSharp: true }
+];
 
 type ScaleNotes = Note[];
 
